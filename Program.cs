@@ -10,6 +10,8 @@ namespace Rog{
             Enemy pistoldwarf = new Enemy("Гном с пистолетом", 60, 40, 40, 30);
             Enemy tommygundwarf = new Enemy("Гном с автоматом", 70, 60, 50, 60);
             Enemy chihuahua = new Enemy("Чихуахуа", 20, 10, 70, 90);
+            Potion agilitypotion = new Potion();
+            Potion sharpshootingpotion = new Potion();
 
             Console.WriteLine(" Когда-то давно 4 расы жили в мире. Но гномы объединились с темными силами и создали государство Пол Рейха. \n Нацисты объявили войну людям, оркам и эльфам. Никто не мог остановить армию гномов. Орки были уничтожены в первые 5 лет. \n Нужно остановить ужасную войну! Вы шпион Союза, вас внедрили в штаб гномов для добычи сведений о новом оружии Рейха. \n На вас наложена мощная магия маскировки. По завершению операции, уходите на точку эвакуации, вас встретит подполье. \n Товарищ, не подведите нас!");
             Console.WriteLine("Как вас зовут?");
@@ -87,7 +89,7 @@ namespace Rog{
 
                     case 4:
                     if (player.AgilityPotionAmmount > 0){
-                        player.Agility = player.Agility + 20;
+                        player.Agility = player.Agility + agilitypotion.Points;
                         player.AgilityPotionAmmount = player.AgilityPotionAmmount - 1;
                         Console.WriteLine("Вы использовали зелье ловкости \n Ваш показатель ловкости: {0}", player.Agility);
                     }
@@ -98,7 +100,7 @@ namespace Rog{
 
                     case 5:
                     if (player.SharpshootingPotionAmmount > 0){
-                        player.Sharpshooting = player.Sharpshooting + 20;
+                        player.Sharpshooting = player.Sharpshooting + sharpshootingpotion.Points;
                         player.SharpshootingPotionAmmount = player.SharpshootingPotionAmmount - 1;
                         Console.WriteLine("Вы использовали зелье меткости \n Ваш показатель меткости: {0}", player.Sharpshooting);
                     }
@@ -107,6 +109,7 @@ namespace Rog{
                     }
                 break;
                  }
+
              /*    
             }
             else if (value > 40 && value <= 80){
