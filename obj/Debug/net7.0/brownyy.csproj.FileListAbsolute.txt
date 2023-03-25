@@ -28,3 +28,18 @@ C:\Users\User\Desktop\brownyy\Rog\obj\Debug\net7.0\refint\brownyy.dll
 C:\Users\User\Desktop\brownyy\Rog\obj\Debug\net7.0\brownyy.pdb
 C:\Users\User\Desktop\brownyy\Rog\obj\Debug\net7.0\brownyy.genruntimeconfig.cache
 C:\Users\User\Desktop\brownyy\Rog\obj\Debug\net7.0\ref\brownyy.dll
+C:\Users\omg what the hell\Source\Repos\Rog\bin\Debug\net7.0\brownyy.exe
+C:\Users\omg what the hell\Source\Repos\Rog\bin\Debug\net7.0\brownyy.deps.json
+C:\Users\omg what the hell\Source\Repos\Rog\bin\Debug\net7.0\brownyy.runtimeconfig.json
+C:\Users\omg what the hell\Source\Repos\Rog\bin\Debug\net7.0\brownyy.dll
+C:\Users\omg what the hell\Source\Repos\Rog\bin\Debug\net7.0\brownyy.pdb
+C:\Users\omg what the hell\Source\Repos\Rog\obj\Debug\net7.0\brownyy.csproj.AssemblyReference.cache
+C:\Users\omg what the hell\Source\Repos\Rog\obj\Debug\net7.0\brownyy.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\omg what the hell\Source\Repos\Rog\obj\Debug\net7.0\brownyy.AssemblyInfoInputs.cache
+C:\Users\omg what the hell\Source\Repos\Rog\obj\Debug\net7.0\brownyy.AssemblyInfo.cs
+C:\Users\omg what the hell\Source\Repos\Rog\obj\Debug\net7.0\brownyy.csproj.CoreCompileInputs.cache
+C:\Users\omg what the hell\Source\Repos\Rog\obj\Debug\net7.0\brownyy.dll
+C:\Users\omg what the hell\Source\Repos\Rog\obj\Debug\net7.0\refint\brownyy.dll
+C:\Users\omg what the hell\Source\Repos\Rog\obj\Debug\net7.0\brownyy.pdb
+C:\Users\omg what the hell\Source\Repos\Rog\obj\Debug\net7.0\brownyy.genruntimeconfig.cache
+C:\Users\omg what the hell\Source\Repos\Rog\obj\Debug\net7.0\ref\brownyy.dll
