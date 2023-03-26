@@ -13,6 +13,9 @@ namespace Rog
             Enemy chihuahua = new Enemy("Чихуахуа", 20, 10, 70, 90);
             Potion agilitypotion = new Potion();
             Potion sharpshootingpotion = new Potion();
+            Weapon pistol = new Weapon(20, 666);        //цены будут позже
+            Weapon tommygun = new Weapon(50, 666);
+            Weapon electro = new Weapon(80, 666);
 
             Console.WriteLine(
                 " Когда-то давно 4 расы жили в мире. Но гномы объединились с темными силами и создали государство Пол Рейха. \n Нацисты объявили войну людям, оркам и эльфам. Никто не мог остановить армию гномов. Орки были уничтожены в первые 5 лет. \n Нужно остановить ужасную войну! Вы шпион Союза, вас внедрили в штаб гномов для добычи сведений о новом оружии Рейха. \n На вас наложена мощная магия маскировки. По завершению операции, уходите на точку эвакуации, вас встретит подполье. \n Товарищ, не подведите нас!"
@@ -31,6 +34,7 @@ namespace Rog
                     player.Health = 100;
                     player.Sharpshooting = 33;
                     player.Agility = 33;
+                    player.Damage = pistol.Damage;
                     Console.WriteLine("Нажмите любую клавишу чтобы начать");
                     Console.ReadKey();
                     break;
@@ -39,6 +43,7 @@ namespace Rog
                     player.Health = 50;
                     player.Sharpshooting = 80;
                     player.Agility = 80;
+                    player.Damage = pistol.Damage;
                     Console.WriteLine("Нажмите любую клавишу чтобы начать");
                     Console.ReadKey();
                     break;
@@ -57,8 +62,8 @@ namespace Rog
                     pistoldwarf.Name
                 );
 
-                int agilityDuration = 0;
-                int sharpshootingDuration = 0;
+                agilitypotion.Duration = 0;
+                sharpshootingpotion.Duration = 0;
 
                 while (pistoldwarf.Health > 0 && player.Health > 0)
                 {
@@ -74,19 +79,19 @@ namespace Rog
                         player.Sharpshooting
                     );
 
-                    if (agilityDuration > 0)
+                    if (agilitypotion.Duration > 0)
                     {
                         Console.WriteLine(
                             "Активно зелье ловкости, осталось {0} ходов",
-                            agilityDuration
+                            agilitypotion.Duration
                         );
                     }
 
-                    if (sharpshootingDuration > 0)
+                    if (sharpshootingpotion.Duration > 0)
                     {
                         Console.WriteLine(
                             "Активно зелье меткости, осталось {0} ходов",
-                            sharpshootingDuration
+                            sharpshootingpotion.Duration
                         );
                     }
                     choice:
@@ -99,7 +104,7 @@ namespace Rog
                     {
                         case 1:
                             Random rnd1 = new Random();
-                            int value1 = 1; //rnd1.Next(1, 3);
+                            int value1 = rnd1.Next(1, 3);
                             if (value1 == 1)
                             {
                                 pistoldwarf.Health = pistoldwarf.Health - player.Damage;
@@ -156,13 +161,13 @@ namespace Rog
                             break;
 
                         case 4:
-                            if (agilityDuration == 0)
+                            if (agilitypotion.Duration == 0)
                             {
                                 if (player.AgilityPotionAmmount > 0)
                                 {
                                     player.Agility = player.Agility + agilitypotion.Points;
                                     player.AgilityPotionAmmount = player.AgilityPotionAmmount - 1;
-                                    agilityDuration = 4;
+                                    agilitypotion.Duration = 4;
                                     Console.WriteLine(
                                         "Вы использовали зелье ловкости \n Ваш показатель ловкости: {0}",
                                         player.Agility
@@ -184,7 +189,7 @@ namespace Rog
                             break;
 
                         case 5:
-                            if (sharpshootingDuration == 0)
+                            if (sharpshootingpotion.Duration == 0)
                             {
                                 if (player.SharpshootingPotionAmmount > 0)
                                 {
@@ -192,7 +197,7 @@ namespace Rog
                                         player.Sharpshooting + sharpshootingpotion.Points;
                                     player.SharpshootingPotionAmmount =
                                         player.SharpshootingPotionAmmount - 1;
-                                    sharpshootingDuration = 4;
+                                    sharpshootingpotion.Duration = 4;
                                     Console.WriteLine(
                                         "Вы использовали зелье меткости \n Ваш показатель меткости: {0}",
                                         player.Sharpshooting
@@ -213,32 +218,41 @@ namespace Rog
                             }
                             break;
                     }
-                    switch (agilityDuration)
+                    switch (agilitypotion.Duration)
                     {
                         case 1:
-                            agilityDuration--;
+                            agilitypotion.Duration--;
                             player.Agility = player.Agility - agilitypotion.Points;
                             break;
                         case 0:
                             break;
                         default:
-                            agilityDuration--;
+                            agilitypotion.Duration--;
                             break;
                     }
-                    switch (sharpshootingDuration)
+                    switch (sharpshootingpotion.Duration)
                     {
                         case 1:
-                            sharpshootingDuration--;
+                            sharpshootingpotion.Duration--;
                             player.Sharpshooting =
                                 player.Sharpshooting - sharpshootingpotion.Points;
                             break;
                         case 0:
                             break;
                         default:
-                            sharpshootingDuration--;
+                            sharpshootingpotion.Duration--;
                             break;
                     }
                 }
+                if (player.Health < 0 && pistoldwarf.Health > 0){
+                        Console.WriteLine("Вы погибли. GAME OVER");
+                        Environment.Exit(0);
+                    }
+                    else{
+                        if (player.Health > 0 && pistoldwarf.Health < 0){
+                            Console.WriteLine("Вы победили");
+                        }
+                    }
 
                 /*
                }
