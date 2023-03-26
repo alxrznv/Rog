@@ -9,6 +9,7 @@ namespace Rog{
         public Potion(){
             Points = 20;
             Cost = 20;
+            Duration = 0;
         }
     }
 }
