@@ -3,7 +3,7 @@ using System.Net;
 
 namespace Rog
 {
-    class Program
+    public class Program
     {
         static void Main()
         {
@@ -54,19 +54,30 @@ namespace Rog
             Random rnd = new Random();
             int value = rnd.Next(1, 101);
             if (value >= 1 && value <= 40){
-                Console.WriteLine(
+                Battle(pistoldwarf.Name, pistoldwarf.Health, pistoldwarf.Agility, pistoldwarf.Sharpshooting, pistoldwarf.Damage);
+               }
+               else if (value > 40 && value <= 80){
+                Battle(chihuahua.Name, chihuahua.Health, chihuahua.Agility, chihuahua.Sharpshooting, chihuahua.Damage);
+               }
+               else if (value > 80 && value <= 101){
+                Battle(tommygundwarf.Name, tommygundwarf.Health, tommygundwarf.Agility, tommygundwarf.Sharpshooting, tommygundwarf.Damage);
+               }
+
+            
+               void Battle(string Name, int Health, int Agility, int Sharpshooting, int Damage){
+                        Console.WriteLine(
                     "{0}, берегитесь, на вас напал {1}!",
                     player.Name,
-                    pistoldwarf.Name
+                    Name
                 );
 
 
-                while (pistoldwarf.Health > 0 && player.Health > 0)
+                while (Health > 0 && player.Health > 0)
                 {
                     Console.WriteLine(
                         "\nВаше здоровье: {0} \nЗдоровье противника: {1}",
                         player.Health,
-                        pistoldwarf.Health
+                        Health
                     );
 
                     Console.WriteLine(
@@ -103,14 +114,14 @@ namespace Rog
                             int value1 = rnd1.Next(1, 3);
                             if (value1 == 1)
                             {
-                                pistoldwarf.Health = pistoldwarf.Health - player.Damage;
-                                player.Health = player.Health - pistoldwarf.Damage;
+                                Health = Health - player.Damage;
+                                player.Health = player.Health - Damage;
                             }
                             else
                             {
-                                pistoldwarf.Health =
-                                    pistoldwarf.Health
-                                    - ((player.Sharpshooting + pistoldwarf.Agility) / 2);
+                                Health =
+                                    Health
+                                    - ((player.Sharpshooting + Agility) / 2);
                             }
                             break;
 
@@ -119,9 +130,9 @@ namespace Rog
                             int value2 = rnd2.Next(1, 3);
                             if (value2 == 1)
                             {
-                                pistoldwarf.Health =
-                                    pistoldwarf.Health
-                                    - ((player.Agility + pistoldwarf.Sharpshooting) / 2);
+                                Health =
+                                    Health
+                                    - ((player.Agility + Sharpshooting) / 2);
                             }
                             else { }
                             break;
@@ -187,7 +198,7 @@ namespace Rog
                         case 5:
                             if (sharpshootingpotion.Duration == 0)
                             {
-                                if (player.SharpshootingPotionAmmount > 0)
+                                if (player.Sharpshooting > 0)
                                 {
                                     player.Sharpshooting =
                                         player.Sharpshooting + sharpshootingpotion.Points;
@@ -214,10 +225,10 @@ namespace Rog
                             }
                             break;
                     }
-                    switch (agilitypotion.Duration)
+                    switch (agilitypotion.Points)
                     {
                         case 1:
-                            agilitypotion.Duration--;
+                            agilitypotion.Points--;
                             player.Agility = player.Agility - agilitypotion.Points;
                             break;
                         case 0:
@@ -244,438 +255,11 @@ namespace Rog
                         Console.WriteLine("Вы погибли. GAME OVER");
                     }
                     else{
-                        if (player.Health > 0 && pistoldwarf.Health < 0){
+                        if (player.Health > 0 && Health < 0){
                             Console.WriteLine("Вы победили");
                         }
                     }
-                }
-            
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-               else if (value > 40 && value <= 80){
-                   Console.WriteLine("{0}, берегитесь, на вас напал враг {1}!", player.Name, chihuahua.Name);
-
-                   while (chihuahua.Health > 0 && player.Health > 0)
-                {
-                    Console.WriteLine(
-                        "\nВаше здоровье: {0} \nЗдоровье противника: {1}",
-                        player.Health,
-                        chihuahua.Health
-                    );
-
-                    Console.WriteLine(
-                        "Ваша ловкость {0}, ваша меткость {1}",
-                        player.Agility,
-                        player.Sharpshooting
-                    );
-
-                    if (agilitypotion.Duration > 0)
-                    {
-                        Console.WriteLine(
-                            "Активно зелье ловкости, осталось {0} ходов",
-                            agilitypotion.Duration
-                        );
-                    }
-
-                    if (sharpshootingpotion.Duration > 0)
-                    {
-                        Console.WriteLine(
-                            "Активно зелье меткости, осталось {0} ходов",
-                            sharpshootingpotion.Duration
-                        );
-                    }
-                    choice:
-                    Console.WriteLine(
-                        "Что будете делать? \n 1. Атака \n 2. Уклонение \n 3. Аптечка \n 4. Зелье Ловкости \n 5. Зелье меткости"
-                    );
-
-                    int hod = Convert.ToInt32(Console.ReadLine());
-                    switch (hod)
-                    {
-                        case 1:
-                            Random rnd1 = new Random();
-                            int value1 = rnd1.Next(1, 3);
-                            if (value1 == 1)
-                            {
-                                chihuahua.Health = chihuahua.Health - player.Damage;
-                                player.Health = player.Health - chihuahua.Damage;
-                            }
-                            else
-                            {
-                                chihuahua.Health =
-                                    chihuahua.Health
-                                    - ((player.Sharpshooting + chihuahua.Agility) / 2);
-                            }
-                            break;
-
-                        case 2:
-                            Random rnd2 = new Random();
-                            int value2 = rnd2.Next(1, 3);
-                            if (value2 == 1)
-                            {
-                                chihuahua.Health =
-                                    chihuahua.Health
-                                    - ((player.Agility + chihuahua.Sharpshooting) / 2);
-                            }
-                            else { }
-                            break;
-
-                        case 3:
-                            if (player.ChemistryAmmount > 0)
-                            {
-                                if (player.Health >= 70)
-                                {
-                                    player.Health = 100;
-                                    player.ChemistryAmmount = player.ChemistryAmmount - 1;
-                                    Console.WriteLine(
-                                        "Вы использовали аптечку \n Ваше здоровье {0}",
-                                        player.Health
-                                    );
-                                }
-                                else
-                                {
-                                    player.Health = player.Health + 30;
-                                    player.ChemistryAmmount = player.ChemistryAmmount - 1;
-                                    Console.WriteLine(
-                                        "Вы использовали аптечку \n Ваше здоровье {0}",
-                                        player.Health
-                                    );
-                                }
-                            }
-                            else
-                            {
-                                Console.WriteLine(
-                                    "К сожалению, у вас нет аптечек в данный момент."
-                                );
-                            }
-                            break;
-
-                        case 4:
-                            if (agilitypotion.Duration == 0)
-                            {
-                                if (player.AgilityPotionAmmount > 0)
-                                {
-                                    player.Agility = player.Agility + agilitypotion.Points;
-                                    player.AgilityPotionAmmount = player.AgilityPotionAmmount - 1;
-                                    agilitypotion.Duration = 4;
-                                    Console.WriteLine(
-                                        "Вы использовали зелье ловкости \n Ваш показатель ловкости: {0}",
-                                        player.Agility
-                                    );
-                                }
-                                else
-                                {
-                                    Console.WriteLine(
-                                        "К сожалению, у вас нет зелий ловкости в данный момент"
-                                    );
-                                    goto choice;
-                                }
-                            }
-                            else
-                            {
-                                Console.WriteLine("Зелье ловкости уже активно");
-                                goto choice;
-                            }
-                            break;
-
-                        case 5:
-                            if (sharpshootingpotion.Duration == 0)
-                            {
-                                if (player.SharpshootingPotionAmmount > 0)
-                                {
-                                    player.Sharpshooting =
-                                        player.Sharpshooting + sharpshootingpotion.Points;
-                                    player.SharpshootingPotionAmmount =
-                                        player.SharpshootingPotionAmmount - 1;
-                                    sharpshootingpotion.Duration = 4;
-                                    Console.WriteLine(
-                                        "Вы использовали зелье меткости \n Ваш показатель меткости: {0}",
-                                        player.Sharpshooting
-                                    );
-                                }
-                                else
-                                {
-                                    Console.WriteLine(
-                                        "К сожалению, у вас нет зелий меткости в данный момент"
-                                    );
-                                    goto choice;
-                                }
-                            }
-                            else
-                            {
-                                Console.WriteLine("Зелье меткости уже активно");
-                                goto choice;
-                            }
-                            break;
-                    }
-                    switch (agilitypotion.Duration)
-                    {
-                        case 1:
-                            agilitypotion.Duration--;
-                            player.Agility = player.Agility - agilitypotion.Points;
-                            break;
-                        case 0:
-                            break;
-                        default:
-                            agilitypotion.Duration--;
-                            break;
-                    }
-                    switch (sharpshootingpotion.Duration)
-                    {
-                        case 1:
-                            sharpshootingpotion.Duration--;
-                            player.Sharpshooting =
-                                player.Sharpshooting - sharpshootingpotion.Points;
-                            break;
-                        case 0:
-                            break;
-                        default:
-                            sharpshootingpotion.Duration--;
-                            break;
-                    }
-                }
-                if (player.Health < 0){
-                        Console.WriteLine("Вы погибли. GAME OVER");
-                    }
-                    else{
-                        if (player.Health > 0 && chihuahua.Health < 0){
-                            Console.WriteLine("Вы победили");
-                        }
-                    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-               }else if (value > 80 && value <= 101){
-                   Console.WriteLine("{0}, берегитесь, на вас напал враг {1}!", player.Name, tommygundwarf.Name);
-
-
-
-                   while (tommygundwarf.Health > 0 && player.Health > 0)
-                {
-                    Console.WriteLine(
-                        "\nВаше здоровье: {0} \nЗдоровье противника: {1}",
-                        player.Health,
-                        tommygundwarf.Health
-                    );
-
-                    Console.WriteLine(
-                        "Ваша ловкость {0}, ваша меткость {1}",
-                        player.Agility,
-                        player.Sharpshooting
-                    );
-
-                    if (agilitypotion.Duration > 0)
-                    {
-                        Console.WriteLine(
-                            "Активно зелье ловкости, осталось {0} ходов",
-                            agilitypotion.Duration
-                        );
-                    }
-
-                    if (sharpshootingpotion.Duration > 0)
-                    {
-                        Console.WriteLine(
-                            "Активно зелье меткости, осталось {0} ходов",
-                            sharpshootingpotion.Duration
-                        );
-                    }
-                    choice:
-                    Console.WriteLine(
-                        "Что будете делать? \n 1. Атака \n 2. Уклонение \n 3. Аптечка \n 4. Зелье Ловкости \n 5. Зелье меткости"
-                    );
-
-                    int hod = Convert.ToInt32(Console.ReadLine());
-                    switch (hod)
-                    {
-                        case 1:
-                            Random rnd1 = new Random();
-                            int value1 = rnd1.Next(1, 3);
-                            if (value1 == 1)
-                            {
-                                tommygundwarf.Health = tommygundwarf.Health - player.Damage;
-                                player.Health = player.Health - tommygundwarf.Damage;
-                            }
-                            else
-                            {
-                                tommygundwarf.Health =
-                                    tommygundwarf.Health
-                                    - ((player.Sharpshooting + tommygundwarf.Agility) / 2);
-                            }
-                            break;
-
-                        case 2:
-                            Random rnd2 = new Random();
-                            int value2 = rnd2.Next(1, 3);
-                            if (value2 == 1)
-                            {
-                                tommygundwarf.Health =
-                                    tommygundwarf.Health
-                                    - ((player.Agility + tommygundwarf.Sharpshooting) / 2);
-                            }
-                            else { }
-                            break;
-
-                        case 3:
-                            if (player.ChemistryAmmount > 0)
-                            {
-                                if (player.Health >= 70)
-                                {
-                                    player.Health = 100;
-                                    player.ChemistryAmmount = player.ChemistryAmmount - 1;
-                                    Console.WriteLine(
-                                        "Вы использовали аптечку \n Ваше здоровье {0}",
-                                        player.Health
-                                    );
-                                }
-                                else
-                                {
-                                    player.Health = player.Health + 30;
-                                    player.ChemistryAmmount = player.ChemistryAmmount - 1;
-                                    Console.WriteLine(
-                                        "Вы использовали аптечку \n Ваше здоровье {0}",
-                                        player.Health
-                                    );
-                                }
-                            }
-                            else
-                            {
-                                Console.WriteLine(
-                                    "К сожалению, у вас нет аптечек в данный момент."
-                                );
-                            }
-                            break;
-
-                        case 4:
-                            if (agilitypotion.Duration == 0)
-                            {
-                                if (player.AgilityPotionAmmount > 0)
-                                {
-                                    player.Agility = player.Agility + agilitypotion.Points;
-                                    player.AgilityPotionAmmount = player.AgilityPotionAmmount - 1;
-                                    agilitypotion.Duration = 4;
-                                    Console.WriteLine(
-                                        "Вы использовали зелье ловкости \n Ваш показатель ловкости: {0}",
-                                        player.Agility
-                                    );
-                                }
-                                else
-                                {
-                                    Console.WriteLine(
-                                        "К сожалению, у вас нет зелий ловкости в данный момент"
-                                    );
-                                    goto choice;
-                                }
-                            }
-                            else
-                            {
-                                Console.WriteLine("Зелье ловкости уже активно");
-                                goto choice;
-                            }
-                            break;
-
-                        case 5:
-                            if (sharpshootingpotion.Duration == 0)
-                            {
-                                if (player.SharpshootingPotionAmmount > 0)
-                                {
-                                    player.Sharpshooting =
-                                        player.Sharpshooting + sharpshootingpotion.Points;
-                                    player.SharpshootingPotionAmmount =
-                                        player.SharpshootingPotionAmmount - 1;
-                                    sharpshootingpotion.Duration = 4;
-                                    Console.WriteLine(
-                                        "Вы использовали зелье меткости \n Ваш показатель меткости: {0}",
-                                        player.Sharpshooting
-                                    );
-                                }
-                                else
-                                {
-                                    Console.WriteLine(
-                                        "К сожалению, у вас нет зелий меткости в данный момент"
-                                    );
-                                    goto choice;
-                                }
-                            }
-                            else
-                            {
-                                Console.WriteLine("Зелье меткости уже активно");
-                                goto choice;
-                            }
-                            break;
-                    }
-                    switch (agilitypotion.Duration)
-                    {
-                        case 1:
-                            agilitypotion.Duration--;
-                            player.Agility = player.Agility - agilitypotion.Points;
-                            break;
-                        case 0:
-                            break;
-                        default:
-                            agilitypotion.Duration--;
-                            break;
-                    }
-                    switch (sharpshootingpotion.Duration)
-                    {
-                        case 1:
-                            sharpshootingpotion.Duration--;
-                            player.Sharpshooting =
-                                player.Sharpshooting - sharpshootingpotion.Points;
-                            break;
-                        case 0:
-                            break;
-                        default:
-                            sharpshootingpotion.Duration--;
-                            break;
-                    }
-                }
-                if (player.Health < 0){
-                        Console.WriteLine("Вы погибли. GAME OVER");
-                    }
-                    else{
-                        if (player.Health > 0 && tommygundwarf.Health < 0){
-                            Console.WriteLine("Вы победили");
-                        }
-                    }
-               }
+        }
         }
     }
 }
