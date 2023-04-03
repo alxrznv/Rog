@@ -51,7 +51,7 @@ namespace Rog
                     Console.ReadKey();
                     break;
             }
-
+            player.Documents = 50000;
             player.AgilityPotionAmmount = 1;
             player.SharpshootingPotionAmmount = 1;
             Random rnd = new Random();

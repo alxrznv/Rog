@@ -15,7 +15,7 @@ namespace Rog{
         public int SharpshootingPotionAmmount {get; set;}
         public int FirstAidAmmount { get; set; }
         public int Item { get; set;}
-        public int Documents { get; set; }
+        public int Documents = 50000;
 
         /*public int UpHealth()
         {
