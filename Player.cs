@@ -3,7 +3,7 @@ using System;
 namespace Rog{
 
     public class Player{
-        Random rand;
+        /*Random rand;*/
         public String Name {get; set;}
         public int Race {get; set;}
         public int Health{get; set;}
@@ -13,28 +13,29 @@ namespace Rog{
         public int ChemistryAmmount {get; set;}
         public int AgilityPotionAmmount {get; set;}
         public int SharpshootingPotionAmmount {get; set;}
+        public int FirstAidAmmount { get; set; }
         public int Item { get; set;}
         public int Documents { get; set; }
 
-        public int UpHealth()
+        /*public int UpHealth()
         {
-            int upper = (2 * Item + 5)
-            int lower = (Item + 2)
+            int upper = (2 * Item + 5);
+            int lower = (Item + 2);
             return rand.Next(lower, upper);
         }
         public int UpAgility()
         {
-            int upper = (2 * Item + 5)
-            int lower = (Item + 2)
+            int upper = (2 * Item + 5);
+            int lower = (Item + 2);
             return rand.Next(lower, upper);
         }
         public int UpSharpshooting()
         {
-            int upper = (2 * Item + 5)
-            int lower = (Item + 2)
+            int upper = (2 * Item + 5);
+            int lower = (Item + 2);
             return rand.Next(lower, upper);
         }
- 
+ */
 
 
 
