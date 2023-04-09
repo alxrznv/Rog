@@ -1,0 +1,17 @@
+E:\Visual Studio Projects\LockJson\LockJson\bin\Debug\net6.0\LockJson.exe
+E:\Visual Studio Projects\LockJson\LockJson\bin\Debug\net6.0\LockJson.deps.json
+E:\Visual Studio Projects\LockJson\LockJson\bin\Debug\net6.0\LockJson.runtimeconfig.json
+E:\Visual Studio Projects\LockJson\LockJson\bin\Debug\net6.0\LockJson.dll
+E:\Visual Studio Projects\LockJson\LockJson\bin\Debug\net6.0\LockJson.pdb
+E:\Visual Studio Projects\LockJson\LockJson\bin\Debug\net6.0\Newtonsoft.Json.dll
+E:\Visual Studio Projects\LockJson\LockJson\obj\Debug\net6.0\LockJson.csproj.AssemblyReference.cache
+E:\Visual Studio Projects\LockJson\LockJson\obj\Debug\net6.0\LockJson.GeneratedMSBuildEditorConfig.editorconfig
+E:\Visual Studio Projects\LockJson\LockJson\obj\Debug\net6.0\LockJson.AssemblyInfoInputs.cache
+E:\Visual Studio Projects\LockJson\LockJson\obj\Debug\net6.0\LockJson.AssemblyInfo.cs
+E:\Visual Studio Projects\LockJson\LockJson\obj\Debug\net6.0\LockJson.csproj.CoreCompileInputs.cache
+E:\Visual Studio Projects\LockJson\LockJson\obj\Debug\net6.0\LockJson.csproj.CopyComplete
+E:\Visual Studio Projects\LockJson\LockJson\obj\Debug\net6.0\LockJson.dll
+E:\Visual Studio Projects\LockJson\LockJson\obj\Debug\net6.0\refint\LockJson.dll
+E:\Visual Studio Projects\LockJson\LockJson\obj\Debug\net6.0\LockJson.pdb
+E:\Visual Studio Projects\LockJson\LockJson\obj\Debug\net6.0\LockJson.genruntimeconfig.cache
+E:\Visual Studio Projects\LockJson\LockJson\obj\Debug\net6.0\ref\LockJson.dll
