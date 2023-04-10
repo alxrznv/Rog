@@ -22,19 +22,23 @@ namespace Rog
             Dealer dealer = new Dealer();
 
             Console.WriteLine(
-                " Когда-то давно 4 расы жили в мире. Но гномы объединились с темными силами и создали государство Пол Рейха. \n Нацисты объявили войну людям, оркам и эльфам. Никто не мог остановить армию гномов. Орки были уничтожены в первые 5 лет. \n Нужно остановить ужасную войну! Вы шпион Союза, вас внедрили в штаб гномов для добычи сведений о новом оружии Рейха. \n На вас наложена мощная магия маскировки. По завершению операции, уходите на точку эвакуации, вас встретит подполье. \n Товарищ, не подведите нас!"
+                " Когда-то давно 4 расы жили в мире. Но гномы объединились с темными силами и создали государство Пол Рейха. \n Нацисты объявили войну людям, оркам и эльфам. Никто не мог остановить армию гномов. Орки были уничтожены в первые 5 лет. \n Нужно остановить ужасную войну! Вы шпион Союза, вас внедрили в штаб гномов для добычи сведений о новом оружии Рейха. \n На вас наложена мощная магия маскировки. По завершению операции, уходите на точку эвакуации, вас встретит подполье. \n Товарищ, не подведите нас!\n"
             );
+            Console.WriteLine("Нажмите любую клавишу чтобы начать");
+            Console.ReadKey();
+            Console.Clear();
             Console.WriteLine("Как вас зовут?");
             player.Name = Console.ReadLine();
             Console.WriteLine("Добро пожаловать в игру, {0}", player.Name);
             Console.WriteLine(
-                "Выберите расу за которую хотите играть: \n 1. Человек. Описание \n 2. Эльф. Описание"
+                "Выберите расу за которую хотите играть: \n 1. Человек. Описание \n 2. Эльф. Описание\n"
             );
-            player.Race = Convert.ToInt32(Console.ReadLine());
+            ConsoleKeyInfo _race = Console.ReadKey();
+            player.Race = int.Parse(_race.KeyChar.ToString());
             switch (player.Race)
             {
                 case 1:
-                    Console.WriteLine("Вы выбрали играть за человека.");
+                    Console.WriteLine(". Вы выбрали играть за человека.");
                     player.Health = 100;
                     player.Sharpshooting = 33;
                     player.Agility = 33;
@@ -43,7 +47,7 @@ namespace Rog
                     Console.ReadKey();
                     break;
                 case 2:
-                    Console.WriteLine("Вы выбрали играть за эльфа.");
+                    Console.WriteLine(". Вы выбрали играть за эльфа.");
                     player.Health = 50;
                     player.Sharpshooting = 80;
                     player.Agility = 80;
@@ -53,32 +57,228 @@ namespace Rog
                     break;
             }
 
-            player.Positon = 2;
+            player.Position = 2;
+            Console.Clear();
             while (player.Health > 0)
             {
+                Console.WriteLine("Положение:\n");
                 switch (player.Position)
                 {
                     case 1:
-                        Console.WriteLine("@@@\n@@@\n#@@");
+                        Console.WriteLine("    @@@\n    @@@\n    #@@\n");
                         break;
                     case 2:
-                        Console.WriteLine("@@@\n@@@\n@#@");
+                        Console.WriteLine("    @@@\n    @@@\n    @#@\n");
+                        break;
+                    case 3:
+                        Console.WriteLine("    @@@\n    @@@\n    @@#\n");
+                        break;
+                    case 4:
+                        Console.WriteLine("    @@@\n    #@@\n    @@@\n");
+                        break;
+                    case 5:
+                        Console.WriteLine("    @@@\n    @#@\n    @@@\n");
+                        break;
+                    case 6:
+                        Console.WriteLine("    @@@\n    @@#\n    @@@\n");
+                        break;
+                    case 7:
+                        Console.WriteLine("    #@@\n    @@@\n    @@@\n");
+                        break;
+                    case 8:
+                        Console.WriteLine("    @#@\n    @@@\n    @@@\n");
+                        break;
+                    case 9:
+                        Console.WriteLine("    @@#\n    @@@\n    @@@\n");
                         break;
                 }
-                Console.WriteLine("Выберите направление перемещения");
-                ConsoleKeyInfo Direction = Console.ReadKey();
-                switch (Direction.Key)
+                Console.WriteLine("Выберите направление перемещения:");
+
+                switch (player.Position)
                 {
-                    case ConsoleKey.RightArrow:
-                        Console.WriteLine("Right Arrow");
-                        break;
-                    case ConsoleKey.LeftArrow:
-                        Console.WriteLine("Left Arrow");
+                    case 1: case 4: case 7:
                         break;
                     default:
+                        Console.WriteLine("    < Влево");
                         break;
                 }
+                switch (player.Position)
+                {
+                    case 3: case 6: case 9:
+                        break;
+                    default:
+                        Console.WriteLine("    > Вправо");
+                        break;
+                }
+                switch (player.Position)
+                {
+                    case 1: case 2: case 3:
+                        break;
+                    default:
+                        Console.WriteLine("    v Вниз");
+                        break;
+                }
+                switch (player.Position)
+                {
+                    case 7: case 8: case 9:
+                        break;
+                    default:
+                        Console.WriteLine("    ^ Вверх");
+                        break;
+                }
+
+                choiceDirection: ConsoleKeyInfo Direction = Console.ReadKey();
+                switch (player.Position)
+                {
+                    case 1:
+                        switch (Direction.Key)
+                        {
+                            case ConsoleKey.RightArrow:
+                                player.Position++;
+                                break;
+                            case ConsoleKey.UpArrow:
+                                player.Position += 3;
+                                break;
+                            default:
+                                goto choiceDirection;
+                        }
+                        break;
+
+                    case 2:
+                        switch (Direction.Key)
+                        {
+                            case ConsoleKey.LeftArrow:
+                                player.Position--;
+                                break;
+                            case ConsoleKey.RightArrow:
+                                player.Position++;
+                                break;
+                            case ConsoleKey.UpArrow:
+                                player.Position += 3;
+                                break;
+                            default:
+                                goto choiceDirection;
+                        }
+                        break;
+
+                    case 3:
+                        switch (Direction.Key)
+                        {
+                            case ConsoleKey.LeftArrow:
+                                player.Position--;
+                                break;
+                            case ConsoleKey.UpArrow:
+                                player.Position += 3;
+                                break;
+                            default:
+                                goto choiceDirection;
+                        }
+                        break;
+
+                    case 4:
+                        switch (Direction.Key)
+                        {
+                            case ConsoleKey.RightArrow:
+                                player.Position++;
+                                break;
+                            case ConsoleKey.UpArrow:
+                                player.Position += 3;
+                                break;
+                            case ConsoleKey.DownArrow:
+                                player.Position -= 3;
+                                break;
+                            default:
+                                goto choiceDirection;
+                        }
+                        break;
+
+                    case 5:
+                        switch (Direction.Key)
+                        {
+                            case ConsoleKey.LeftArrow:
+                                player.Position--;
+                                break;
+                            case ConsoleKey.RightArrow:
+                                player.Position++;
+                                break;
+                            case ConsoleKey.UpArrow:
+                                player.Position += 3;
+                                break;
+                            case ConsoleKey.DownArrow:
+                                player.Position -= 3;
+                                break;
+                            default:
+                                goto choiceDirection;
+                        }
+                        break;
+
+                    case 6:
+                        switch (Direction.Key)
+                        {
+                            case ConsoleKey.LeftArrow:
+                                player.Position--;
+                                break;
+                            case ConsoleKey.UpArrow:
+                                player.Position += 3;
+                                break;
+                            case ConsoleKey.DownArrow:
+                                player.Position -= 3;
+                                break;
+                            default:
+                                goto choiceDirection;
+                        }
+                        break;
+
+                    case 7:
+                        switch (Direction.Key)
+                        {
+                            case ConsoleKey.RightArrow:
+                                player.Position++;
+                                break;
+                            case ConsoleKey.DownArrow:
+                                player.Position -= 3;
+                                break;
+                            default:
+                                goto choiceDirection;
+                        }
+                        break;
+
+                    case 8:
+                        switch (Direction.Key)
+                        {
+                            case ConsoleKey.LeftArrow:
+                                player.Position--;
+                                break;
+                            case ConsoleKey.RightArrow:
+                                player.Position++;
+                                break;
+                            case ConsoleKey.UpArrow:
+                                goto exit;
+                            case ConsoleKey.DownArrow:
+                                player.Position -= 3;
+                                break;
+                            default:
+                                goto choiceDirection;
+                        }
+                        break;
+
+                    case 9:
+                        switch (Direction.Key)
+                        {
+                            case ConsoleKey.LeftArrow:
+                                player.Position--;
+                                break;
+                            case ConsoleKey.DownArrow:
+                                player.Position -= 3;
+                                break;
+                            default:
+                                goto choiceDirection;
+                        }
+                        break;
+                }
+                Console.Clear();
             }
+            exit: Console.WriteLine("\nДо связи....\n"); ;
 
             /*
                         player.AgilityPotionAmmount = 1;

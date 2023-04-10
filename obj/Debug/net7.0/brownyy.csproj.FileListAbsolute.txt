@@ -66,3 +66,10 @@ C:\Users\nickf\Documents\VS Code\sas\rog\Rog\obj\Debug\net7.0\brownyy.csproj.Cor
 C:\Users\nickf\Documents\VS Code\sas\rog\Rog\obj\Debug\net7.0\brownyy.dll
 C:\Users\nickf\Documents\VS Code\sas\rog\Rog\obj\Debug\net7.0\refint\brownyy.dll
 C:\Users\nickf\Documents\VS Code\sas\rog\Rog\obj\Debug\net7.0\brownyy.pdb
+C:\Users\nickf\Documents\VS Code\sas\rog\Rog\bin\Debug\net7.0\brownyy.exe
+C:\Users\nickf\Documents\VS Code\sas\rog\Rog\bin\Debug\net7.0\brownyy.deps.json
+C:\Users\nickf\Documents\VS Code\sas\rog\Rog\bin\Debug\net7.0\brownyy.runtimeconfig.json
+C:\Users\nickf\Documents\VS Code\sas\rog\Rog\bin\Debug\net7.0\brownyy.dll
+C:\Users\nickf\Documents\VS Code\sas\rog\Rog\bin\Debug\net7.0\brownyy.pdb
+C:\Users\nickf\Documents\VS Code\sas\rog\Rog\obj\Debug\net7.0\brownyy.genruntimeconfig.cache
+C:\Users\nickf\Documents\VS Code\sas\rog\Rog\obj\Debug\net7.0\ref\brownyy.dll
