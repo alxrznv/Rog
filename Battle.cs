@@ -199,7 +199,7 @@ namespace Rog{
                     else{
                         if (p.Health > 0 && e.Health < 0){
                             Console.WriteLine("Вы победили");
-                                p.DocumentsAmmount = p.DocumentsAmmount + e.Documents;
+                            p.DocumentsAmmount = p.DocumentsAmmount + e.Documents;
                             Console.WriteLine("Теперь у вас {0} документов", p.DocumentsAmmount);
                             }
                         }

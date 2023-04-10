@@ -1,57 +1,54 @@
-/*
 using System;
 
 namespace Rog{
 
     public class Dealer{
-        public void Deal(){
-            Console.Clear();
+        public void Deal(Player p, Potion a, Potion s, Potion c,
+                         Weapon t, Weapon e){
                 Console.WriteLine("Добро пожаловать в мой магазин, путник!\n " +
                 "Товара не много, так как он очень редкий и ,соответственно, дорогой, так что выбирай с умом!");
                 Console.WriteLine("|             ЛАВКА          |");
                 Console.WriteLine("+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=");
-                Console.WriteLine("|      Зелье ловкости(1) - " + agilityPotionCost +      "|");
+                Console.WriteLine("|      Зелье ловкости(1) - " + a.Cost +      "|");
                 Console.WriteLine("|         (1) - купить       |");
-                Console.WriteLine("|      Зелье меткости(2) - " + sharpshootingPotionCost + "|");
+                Console.WriteLine("|      Зелье меткости(2) - " + s.Cost + "|");
                 Console.WriteLine("|         (2) - купить       |");
-                Console.WriteLine("|          Аптечка(3)   -  " + firstAidCost +           "|");
+                Console.WriteLine("|          Аптечка(3)   -  " + c.Cost +           "|");
                 Console.WriteLine("|         (3) - купить       |");
-                Console.WriteLine("|          Автомат(4)   -  " + automaticGunCost +        "|");
+                Console.WriteLine("|          Автомат(4)   -  " + t.Cost +        "|");
                 Console.WriteLine("|         (4) - купить       |");
+                Console.WriteLine("|          Электро(5)   -  " + e.Cost +        "|");
+                Console.WriteLine("|         (5) - купить       |");
                 Console.WriteLine("+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=");
-                Console.WriteLine("|    Покинуть торговца - (5) |");
+                Console.WriteLine("|    Покинуть торговца - (6) |");
                 Console.WriteLine("                              ");
                 Console.WriteLine("                              ");
-                Console.WriteLine("+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=");
-                Console.WriteLine("|          Ивентарь          |");
-                Console.WriteLine("+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=");
-                Console.WriteLine("|          Документы -   " + p.Documents +                  "|");
-                Console.WriteLine("|       Зелье ловкости - " + p.AgilityPotionAmmount +       "|");
-                Console.WriteLine("|       Зелье меткости - " + p.SharpshootingPotionAmmount + "|");
-                Console.WriteLine("|           Оружие  -    ");
-                Console.WriteLine("|          Аптечка -     " + p.FirstAidAmmount +            "|");
                 Console.WriteLine("+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=");
                 
-                string input = Console.ReadLine().ToLower();
-                if (input == "1" || input == "ловкость")
+                int input = Convert.ToInt32(Console.ReadLine());
+                if (input == 1)
                 {
-                    TryBuy("ловкость", agilityPotionCost, p);
+                    TryBuy("ловкость", a.Cost, p);
                 }
-                else if (input == "2" || input == "меткость")
+                else if (input == 2)
                 {
-                    TryBuy("меткость", sharpshootingPotionCost, p);
+                    TryBuy("меткость", s.Cost, p);
                 }
 
-                else if (input == "3" || input == "аптечка")
+                else if (input == 3)
                 {
-                    TryBuy("аптечка", firstAidCost, p);
+                    TryBuy("аптечка", c.Cost, p);
                 }
-                else if (input == "4" || input == "автомат")
+                else if (input == 4)
                 {
-                    TryBuy("автомат", automaticGunCost, p);
+                    TryBuy("автомат", t.Cost, p);
                 }
-                else if (input == "5" || input == "Покинуть торговца")
-                    break;
+                else if (input == 5)
+                {
+                    TryBuy("электро", e.Cost, p);
+                }
+                else if (input == 6);
+
 }
       
 
@@ -59,9 +56,9 @@ namespace Rog{
             
 
 
-        static void TryBuy(string item, int cost, Player p)
+        public void TryBuy(string item, int cost, Player p)
         {
-            if (p.Documents >= cost)
+            if (p.DocumentsAmmount >= cost)
             {
                 if (item == "ловкость")
                 {
@@ -73,14 +70,18 @@ namespace Rog{
                 }
                 else if (item == "аптечка")
                 {
-                    p.FirstAidAmmount++;
+                    p.ChemistryAmmount++;
                 }
                 else if (item == "автомат")
                 {
-                    p.Damage++;
+                    p.Damage = 50;
+                }
+                else if (item == "электро")
+                {
+                    p.Damage = 80;
                 }
                 Console.WriteLine("По-рукам!");
-                p.Documents -= cost;
+                p.DocumentsAmmount -= cost;
             }
             else
             {
@@ -91,4 +92,3 @@ namespace Rog{
     }
 }
 }
-*/

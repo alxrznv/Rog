@@ -19,6 +19,7 @@ namespace Rog
             Weapon electro = new Weapon("Электро", 80, 666);
             Battle Batttle = new Battle();
             Inventory inventory = new Inventory();
+            Dealer dealer = new Dealer();
 
             Console.WriteLine(
                 " Когда-то давно 4 расы жили в мире. Но гномы объединились с темными силами и создали государство Пол Рейха. \n Нацисты объявили войну людям, оркам и эльфам. Никто не мог остановить армию гномов. Орки были уничтожены в первые 5 лет. \n Нужно остановить ужасную войну! Вы шпион Союза, вас внедрили в штаб гномов для добычи сведений о новом оружии Рейха. \n На вас наложена мощная магия маскировки. По завершению операции, уходите на точку эвакуации, вас встретит подполье. \n Товарищ, не подведите нас!"
@@ -58,7 +59,6 @@ namespace Rog
             int value = rnd.Next(1, 101);
             if (value >= 1 && value <= 40){
                 Batttle.Batttle(pistoldwarf, player, agilitypotion, sharpshootingpotion, chemistrypotion);
-                       
                }
                else if (value > 40 && value <= 80){
                 Batttle.Batttle(chihuahua, player, agilitypotion, sharpshootingpotion, chemistrypotion);
@@ -66,11 +66,10 @@ namespace Rog
                else if (value > 80 && value <= 101){
                Batttle.Batttle(tommygundwarf, player, agilitypotion, sharpshootingpotion, chemistrypotion);
                }
-               inventory.Inv(player);
                 Console.WriteLine("Нажмите любую клавишу чтобы продолжить");
                     Console.ReadKey();
-
-                
+                inventory.Inv(player);
+                dealer.Deal(player, agilitypotion, sharpshootingpotion, chemistrypotion, tommygun, electro);
         }
     }
 }
