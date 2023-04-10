@@ -57,28 +57,20 @@ namespace Rog
             Random rnd = new Random();
             int value = rnd.Next(1, 101);
             if (value >= 1 && value <= 40){
-                Batttle.Batttle(pistoldwarf.Name, pistoldwarf.Health, pistoldwarf.Agility, pistoldwarf.Sharpshooting, pistoldwarf.Damage, pistoldwarf.Documents,
-                      player.Name, player.Health, player.Agility, player.Sharpshooting, player.Damage, player.DocumentsAmmount,
-                     agilitypotion.Duration, sharpshootingpotion.Duration,
-                        player.ChemistryAmmount, player.AgilityPotionAmmount, player.SharpshootingPotionAmmount, 
-                       chemistrypotion.Points, agilitypotion.Points, sharpshootingpotion.Points);
+                Batttle.Batttle(pistoldwarf, player, agilitypotion, sharpshootingpotion, chemistrypotion);
                        
                }
                else if (value > 40 && value <= 80){
-                Batttle.Batttle(chihuahua.Name, chihuahua.Health, chihuahua.Agility, chihuahua.Sharpshooting, chihuahua.Damage, chihuahua.Documents,
-                      player.Name, player.Health, player.Agility, player.Sharpshooting, player.Damage, player.DocumentsAmmount,
-                     agilitypotion.Duration, sharpshootingpotion.Duration,
-                        player.ChemistryAmmount, player.AgilityPotionAmmount, player.SharpshootingPotionAmmount, 
-                       chemistrypotion.Points, agilitypotion.Points, sharpshootingpotion.Points);
+                Batttle.Batttle(chihuahua, player, agilitypotion, sharpshootingpotion, chemistrypotion);
                }
                else if (value > 80 && value <= 101){
-               Batttle.Batttle(tommygundwarf.Name, tommygundwarf.Health, tommygundwarf.Agility, tommygundwarf.Sharpshooting, tommygundwarf.Damage, tommygundwarf.Documents,
-                      player.Name, player.Health, player.Agility, player.Sharpshooting, player.Damage, player.DocumentsAmmount,
-                     agilitypotion.Duration, sharpshootingpotion.Duration,
-                        player.ChemistryAmmount, player.AgilityPotionAmmount, player.SharpshootingPotionAmmount, 
-                       chemistrypotion.Points, agilitypotion.Points, sharpshootingpotion.Points);
+               Batttle.Batttle(tommygundwarf, player, agilitypotion, sharpshootingpotion, chemistrypotion);
                }
-               inventory.Inv(player.DocumentsAmmount, player.AgilityPotionAmmount, player.SharpshootingPotionAmmount, player.Damage, player.ChemistryAmmount);
+               inventory.Inv(player);
+                Console.WriteLine("Нажмите любую клавишу чтобы продолжить");
+                    Console.ReadKey();
+
+                
         }
     }
 }

@@ -2,7 +2,7 @@ using System;
 
 namespace Rog{
 
-    public class Enemy : Program{
+    public class Enemy{
         public string Name {get; set;}
         public int Health{get; set;}
         public int Sharpshooting {get; set;}

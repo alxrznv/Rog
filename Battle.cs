@@ -3,45 +3,43 @@ using System;
 namespace Rog{
 
     public class Battle{
-       public  void Batttle(string EnemyName, int EnemyHealth, int EnemyAgility, int EnemySharpshooting, int EnemyDamage, int EnemyDocument,
-                      string PlayerName, int PlayerHealth, int PlayerAgility, int PlayerSharpshooting, int PlayerDamage, int PlayerDocument,
-                      int AgilityPotionDuration, int SharpshootingPotionDuration,
-                        int PlayerChemistryAmmount, int PlayerAgilityPotionAmmount, int PlayerSharpshootingPotionAmmount, 
-                       int ChemistryPotionPoints, int AgilityPotionPoints, int SharpshootingPotionPoints){    
+       public  void Batttle(Enemy e,
+                            Player p,
+                            Potion a, Potion s, Potion c){    
                         Console.WriteLine(
                     "{0}, берегитесь, на вас напал {1}!",
-                    PlayerName,
-                    EnemyName
+                    p.Name,
+                    e.Name
                 );
 
 
-                while (EnemyHealth > 0 && PlayerHealth > 0)
+                while (e.Health > 0 && p.Health > 0)
                 {
                     Console.WriteLine(
                         "\nВаше здоровье: {0} \nЗдоровье противника: {1}",
-                        PlayerHealth,
-                        EnemyHealth
+                        p.Health,
+                        e.Health
                     );
 
                     Console.WriteLine(
                         "Ваша ловкость {0}, ваша меткость {1}",
-                        PlayerAgility,
-                        PlayerSharpshooting
+                        p.Agility,
+                        p.Sharpshooting
                     );
 
-                    if (AgilityPotionDuration > 0)
+                    if (a.Duration > 0)
                     {
                         Console.WriteLine(
                             "Активно зелье ловкости, осталось {0} ходов",
-                            AgilityPotionDuration
+                            a.Duration
                         );
                     }
 
-                    if (SharpshootingPotionDuration > 0)
+                    if (s.Duration > 0)
                     {
                         Console.WriteLine(
                             "Активно зелье меткости, осталось {0} ходов",
-                            SharpshootingPotionDuration
+                            s.Duration
                         );
                     }
                     choice:
@@ -57,14 +55,14 @@ namespace Rog{
                             int value1 = rnd1.Next(1, 3);
                             if (value1 == 1)
                             {
-                                EnemyHealth = EnemyHealth - PlayerDamage;
-                                PlayerHealth = PlayerHealth - EnemyDamage;
+                                e.Health = e.Health - p.Damage;
+                                p.Health = p.Health - e.Damage;
                             }
                             else
                             {
-                                EnemyHealth =
-                                    EnemyHealth
-                                    - ((PlayerSharpshooting + EnemyAgility) / 2);
+                                e.Health =
+                                    e.Health
+                                    - ((p.Sharpshooting + e.Agility) / 2);
                             }
                             break;
 
@@ -73,32 +71,32 @@ namespace Rog{
                             int value2 = rnd2.Next(1, 3);
                             if (value2 == 1)
                             {
-                                EnemyHealth =
-                                    EnemyHealth
-                                    - ((PlayerAgility + EnemySharpshooting) / 2);
+                                e.Health =
+                                    e.Health
+                                    - ((p.Agility + e.Sharpshooting) / 2);
                             }
                             else { }
                             break;
 
                         case 3:
-                            if (PlayerChemistryAmmount > 0)
+                            if (p.ChemistryAmmount > 0)
                             {
-                                if (PlayerHealth >= 70)
+                                if (p.Health >= 70)
                                 {
-                                    PlayerHealth = 100;
-                                    PlayerChemistryAmmount = PlayerChemistryAmmount - 1;
+                                    p.Health = 100;
+                                    p.ChemistryAmmount = p.ChemistryAmmount - 1;
                                     Console.WriteLine(
                                         "Вы использовали аптечку \n Ваше здоровье {0}",
-                                        PlayerHealth
+                                        p.Health
                                     );
                                 }
                                 else
                                 {
-                                    PlayerHealth = PlayerHealth + ChemistryPotionPoints;
-                                    PlayerChemistryAmmount = PlayerChemistryAmmount - 1;
+                                    p.Health = p.Health + c.Points;
+                                    p.ChemistryAmmount = p.ChemistryAmmount - 1;
                                     Console.WriteLine(
                                         "Вы использовали аптечку \n Ваше здоровье {0}",
-                                        PlayerHealth
+                                        p.Health
                                     );
                                 }
                             }
@@ -111,16 +109,16 @@ namespace Rog{
                             break;
 
                         case 4:
-                            if (AgilityPotionDuration == 0)
+                            if (a.Duration == 0)
                             {
-                                if (PlayerAgilityPotionAmmount > 0)
+                                if (p.AgilityPotionAmmount > 0)
                                 {
-                                    PlayerAgility = PlayerAgility + AgilityPotionPoints;
-                                    PlayerAgilityPotionAmmount = PlayerAgilityPotionAmmount - 1;
-                                    AgilityPotionDuration = 4;
+                                    p.Agility = p.Agility + a.Points;
+                                    p.AgilityPotionAmmount = p.AgilityPotionAmmount - 1;
+                                    a.Duration = 4;
                                     Console.WriteLine(
                                         "Вы использовали зелье ловкости \n Ваш показатель ловкости: {0}",
-                                        PlayerAgility
+                                        p.Agility
                                     );
                                 }
                                 else
@@ -139,18 +137,18 @@ namespace Rog{
                             break;
 
                         case 5:
-                            if (SharpshootingPotionDuration == 0)
+                            if (s.Duration == 0)
                             {
-                                if (PlayerSharpshooting > 0)
+                                if (p.Sharpshooting > 0)
                                 {
-                                    PlayerSharpshooting =
-                                        PlayerSharpshooting + SharpshootingPotionPoints;
-                                    PlayerSharpshootingPotionAmmount =
-                                        PlayerSharpshootingPotionAmmount - 1;
-                                    SharpshootingPotionDuration = 4;
+                                    p.Sharpshooting =
+                                        p.Sharpshooting + s.Points;
+                                    p.SharpshootingPotionAmmount =
+                                        p.SharpshootingPotionAmmount - 1;
+                                    s.Duration = 4;
                                     Console.WriteLine(
                                         "Вы использовали зелье меткости \n Ваш показатель меткости: {0}",
-                                        PlayerSharpshooting
+                                        p.Sharpshooting
                                     );
                                 }
                                 else
@@ -168,41 +166,41 @@ namespace Rog{
                             }
                             break;
                     }
-                    switch (AgilityPotionPoints)
+                    switch (a.Points)
                     {
                         case 1:
-                            AgilityPotionPoints--;
-                            PlayerAgility = PlayerAgility - AgilityPotionPoints;
+                            a.Points--;
+                            p.Agility = p.Agility - a.Points;
                             break;
                         case 0:
                             break;
                         default:
-                            AgilityPotionDuration--;
+                            a.Duration--;
                             break;
                     }
-                    switch (SharpshootingPotionDuration)
+                    switch (s.Duration)
                     {
                         case 1:
-                            SharpshootingPotionDuration--;
-                            PlayerSharpshooting =
-                                PlayerSharpshooting - SharpshootingPotionPoints;
+                            s.Duration--;
+                            p.Sharpshooting =
+                                p.Sharpshooting - s.Points;
                             break;
                         case 0:
                             break;
                         default:
-                            SharpshootingPotionDuration--;
+                            s.Duration--;
                             break;
                     }
                 }
-                if (PlayerHealth < 0){
+                if (p.Health < 0){
                         Console.WriteLine("Вы погибли. GAME OVER");
                         
                     }
                     else{
-                        if (PlayerHealth > 0 && EnemyHealth < 0){
+                        if (p.Health > 0 && e.Health < 0){
                             Console.WriteLine("Вы победили");
-                                PlayerDocument = PlayerDocument + EnemyDocument;
-                            Console.WriteLine("Теперь у вас {0} документов", PlayerDocument);
+                                p.DocumentsAmmount = p.DocumentsAmmount + e.Documents;
+                            Console.WriteLine("Теперь у вас {0} документов", p.DocumentsAmmount);
                             }
                         }
                     }
