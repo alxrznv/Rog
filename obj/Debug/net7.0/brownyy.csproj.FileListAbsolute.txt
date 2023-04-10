@@ -58,3 +58,11 @@ C:\Users\User\Desktop\Новая папка (12)\Rog\obj\Debug\net7.0\refint\bro
 C:\Users\User\Desktop\Новая папка (12)\Rog\obj\Debug\net7.0\brownyy.pdb
 C:\Users\User\Desktop\Новая папка (12)\Rog\obj\Debug\net7.0\brownyy.genruntimeconfig.cache
 C:\Users\User\Desktop\Новая папка (12)\Rog\obj\Debug\net7.0\ref\brownyy.dll
+C:\Users\nickf\Documents\VS Code\sas\rog\Rog\obj\Debug\net7.0\brownyy.csproj.AssemblyReference.cache
+C:\Users\nickf\Documents\VS Code\sas\rog\Rog\obj\Debug\net7.0\brownyy.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\nickf\Documents\VS Code\sas\rog\Rog\obj\Debug\net7.0\brownyy.AssemblyInfoInputs.cache
+C:\Users\nickf\Documents\VS Code\sas\rog\Rog\obj\Debug\net7.0\brownyy.AssemblyInfo.cs
+C:\Users\nickf\Documents\VS Code\sas\rog\Rog\obj\Debug\net7.0\brownyy.csproj.CoreCompileInputs.cache
+C:\Users\nickf\Documents\VS Code\sas\rog\Rog\obj\Debug\net7.0\brownyy.dll
+C:\Users\nickf\Documents\VS Code\sas\rog\Rog\obj\Debug\net7.0\refint\brownyy.dll
+C:\Users\nickf\Documents\VS Code\sas\rog\Rog\obj\Debug\net7.0\brownyy.pdb

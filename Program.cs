@@ -14,7 +14,7 @@ namespace Rog
             Potion agilitypotion = new Potion();
             Potion sharpshootingpotion = new Potion();
             Potion chemistrypotion = new Potion();
-            Weapon pistol = new Weapon("Пистолет", 20, 666);        //цены будут позже
+            Weapon pistol = new Weapon("Пистолет", 20, 666); //цены будут позже
             Weapon tommygun = new Weapon("Автомат", 50, 666);
             Weapon electro = new Weapon("Электро", 80, 666);
             Battle Batttle = new Battle();
@@ -53,23 +53,79 @@ namespace Rog
                     break;
             }
 
-            player.AgilityPotionAmmount = 1;
-            player.SharpshootingPotionAmmount = 1;
-            Random rnd = new Random();
-            int value = rnd.Next(1, 101);
-            if (value >= 1 && value <= 40){
-                Batttle.Batttle(pistoldwarf, player, agilitypotion, sharpshootingpotion, chemistrypotion);
-               }
-               else if (value > 40 && value <= 80){
-                Batttle.Batttle(chihuahua, player, agilitypotion, sharpshootingpotion, chemistrypotion);
-               }
-               else if (value > 80 && value <= 101){
-               Batttle.Batttle(tommygundwarf, player, agilitypotion, sharpshootingpotion, chemistrypotion);
-               }
-                Console.WriteLine("Нажмите любую клавишу чтобы продолжить");
-                    Console.ReadKey();
-                inventory.Inv(player);
-                dealer.Deal(player, agilitypotion, sharpshootingpotion, chemistrypotion, tommygun, electro);
+            player.Positon = 2;
+            while (player.Health > 0)
+            {
+                switch (player.Position)
+                {
+                    case 1:
+                        Console.WriteLine("@@@\n@@@\n#@@");
+                        break;
+                    case 2:
+                        Console.WriteLine("@@@\n@@@\n@#@");
+                        break;
+                }
+                Console.WriteLine("Выберите направление перемещения");
+                ConsoleKeyInfo Direction = Console.ReadKey();
+                switch (Direction.Key)
+                {
+                    case ConsoleKey.RightArrow:
+                        Console.WriteLine("Right Arrow");
+                        break;
+                    case ConsoleKey.LeftArrow:
+                        Console.WriteLine("Left Arrow");
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            /*
+                        player.AgilityPotionAmmount = 1;
+                        player.SharpshootingPotionAmmount = 1;
+                        Random rnd = new Random();
+                        int value = rnd.Next(1, 101);
+                        if (value >= 1 && value <= 40)
+                        {
+                            Batttle.Batttle(
+                                pistoldwarf,
+                                player,
+                                agilitypotion,
+                                sharpshootingpotion,
+                                chemistrypotion
+                            );
+                        }
+                        else if (value > 40 && value <= 80)
+                        {
+                            Batttle.Batttle(
+                                chihuahua,
+                                player,
+                                agilitypotion,
+                                sharpshootingpotion,
+                                chemistrypotion
+                            );
+                        }
+                        else if (value > 80 && value <= 101)
+                        {
+                            Batttle.Batttle(
+                                tommygundwarf,
+                                player,
+                                agilitypotion,
+                                sharpshootingpotion,
+                                chemistrypotion
+                            );
+                        }
+                        Console.WriteLine("Нажмите любую клавишу чтобы продолжить");
+                        Console.ReadKey();
+                        inventory.Inv(player);
+                        dealer.Deal(
+                            player,
+                            agilitypotion,
+                            sharpshootingpotion,
+                            chemistrypotion,
+                            tommygun,
+                            electro
+                        ); */
         }
     }
 }

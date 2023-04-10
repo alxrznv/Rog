@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\Desktop\\Новая папка (12)\\Rog\\brownyy.csproj": {}
+    "C:\\Users\\nickf\\Documents\\VS Code\\sas\\rog\\Rog\\brownyy.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\Desktop\\Новая папка (12)\\Rog\\brownyy.csproj": {
+    "C:\\Users\\nickf\\Documents\\VS Code\\sas\\rog\\Rog\\brownyy.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\Desktop\\Новая папка (12)\\Rog\\brownyy.csproj",
+        "projectUniqueName": "C:\\Users\\nickf\\Documents\\VS Code\\sas\\rog\\Rog\\brownyy.csproj",
         "projectName": "brownyy",
-        "projectPath": "C:\\Users\\User\\Desktop\\Новая папка (12)\\Rog\\brownyy.csproj",
-        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\Desktop\\Новая папка (12)\\Rog\\obj\\",
+        "projectPath": "C:\\Users\\nickf\\Documents\\VS Code\\sas\\rog\\Rog\\brownyy.csproj",
+        "packagesPath": "C:\\Users\\nickf\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\nickf\\Documents\\VS Code\\sas\\rog\\Rog\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\nickf\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
@@ -53,7 +56,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }
