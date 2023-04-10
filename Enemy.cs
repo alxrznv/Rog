@@ -5,7 +5,6 @@ namespace Rog{
     public class Enemy : Program{
         public string Name {get; set;}
         public int Health{get; set;}
-        public int Meet_Chance{get; set;}
         public int Sharpshooting {get; set;}
         public int Agility {get; set;}
         public int Damage {get; set;}

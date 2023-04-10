@@ -12,5 +12,6 @@ namespace Rog{
         public int ChemistryAmmount {get; set;}
         public int AgilityPotionAmmount {get; set;}
         public int SharpshootingPotionAmmount {get; set;}
+        public int DocumentsAmmount {get; set;}
     }
 }

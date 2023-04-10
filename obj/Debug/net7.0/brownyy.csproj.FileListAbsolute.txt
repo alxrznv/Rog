@@ -43,3 +43,18 @@ C:\Users\User\Desktop\Rogalick\Rog\obj\Debug\net7.0\refint\brownyy.dll
 C:\Users\User\Desktop\Rogalick\Rog\obj\Debug\net7.0\brownyy.pdb
 C:\Users\User\Desktop\Rogalick\Rog\obj\Debug\net7.0\brownyy.genruntimeconfig.cache
 C:\Users\User\Desktop\Rogalick\Rog\obj\Debug\net7.0\ref\brownyy.dll
+C:\Users\User\Desktop\Новая папка (12)\Rog\bin\Debug\net7.0\brownyy.exe
+C:\Users\User\Desktop\Новая папка (12)\Rog\bin\Debug\net7.0\brownyy.deps.json
+C:\Users\User\Desktop\Новая папка (12)\Rog\bin\Debug\net7.0\brownyy.runtimeconfig.json
+C:\Users\User\Desktop\Новая папка (12)\Rog\bin\Debug\net7.0\brownyy.dll
+C:\Users\User\Desktop\Новая папка (12)\Rog\bin\Debug\net7.0\brownyy.pdb
+C:\Users\User\Desktop\Новая папка (12)\Rog\obj\Debug\net7.0\brownyy.csproj.AssemblyReference.cache
+C:\Users\User\Desktop\Новая папка (12)\Rog\obj\Debug\net7.0\brownyy.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\Desktop\Новая папка (12)\Rog\obj\Debug\net7.0\brownyy.AssemblyInfoInputs.cache
+C:\Users\User\Desktop\Новая папка (12)\Rog\obj\Debug\net7.0\brownyy.AssemblyInfo.cs
+C:\Users\User\Desktop\Новая папка (12)\Rog\obj\Debug\net7.0\brownyy.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\Новая папка (12)\Rog\obj\Debug\net7.0\brownyy.dll
+C:\Users\User\Desktop\Новая папка (12)\Rog\obj\Debug\net7.0\refint\brownyy.dll
+C:\Users\User\Desktop\Новая папка (12)\Rog\obj\Debug\net7.0\brownyy.pdb
+C:\Users\User\Desktop\Новая папка (12)\Rog\obj\Debug\net7.0\brownyy.genruntimeconfig.cache
+C:\Users\User\Desktop\Новая папка (12)\Rog\obj\Debug\net7.0\ref\brownyy.dll
