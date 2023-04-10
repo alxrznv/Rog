@@ -3,11 +3,11 @@ using System;
 namespace Rog{
 
     public class Battle{
-       public  void Batttle(string EnemyName, int EnemyHealth, int EnemyAgility, int EnemySharpshooting, int EnemyDamage,
-                      string PlayerName, int PlayerHealth, int PlayerAgility, int PlayerSharpshooting, int PlayerDamage,
+       public  void Batttle(string EnemyName, int EnemyHealth, int EnemyAgility, int EnemySharpshooting, int EnemyDamage, int EnemyDocument,
+                      string PlayerName, int PlayerHealth, int PlayerAgility, int PlayerSharpshooting, int PlayerDamage, int PlayerDocument,
                       int AgilityPotionDuration, int SharpshootingPotionDuration,
                         int PlayerChemistryAmmount, int PlayerAgilityPotionAmmount, int PlayerSharpshootingPotionAmmount, 
-                       int ChemistryPotionPoints, int AgilityPotionPoints, int SharpshootingPotionPoints){    //БОЙ
+                       int ChemistryPotionPoints, int AgilityPotionPoints, int SharpshootingPotionPoints){    
                         Console.WriteLine(
                     "{0}, берегитесь, на вас напал {1}!",
                     PlayerName,
@@ -196,12 +196,15 @@ namespace Rog{
                 }
                 if (PlayerHealth < 0){
                         Console.WriteLine("Вы погибли. GAME OVER");
+                        
                     }
                     else{
                         if (PlayerHealth > 0 && EnemyHealth < 0){
                             Console.WriteLine("Вы победили");
+                                PlayerDocument = PlayerDocument + EnemyDocument;
+                            Console.WriteLine("Теперь у вас {0} документов", PlayerDocument);
+                            }
                         }
                     }
         }
     }
-}
