@@ -1,0 +1,17 @@
+E:\Visual Studio Projects\Room\Room\bin\Debug\net6.0\Room.exe
+E:\Visual Studio Projects\Room\Room\bin\Debug\net6.0\Room.deps.json
+E:\Visual Studio Projects\Room\Room\bin\Debug\net6.0\Room.runtimeconfig.json
+E:\Visual Studio Projects\Room\Room\bin\Debug\net6.0\Room.dll
+E:\Visual Studio Projects\Room\Room\bin\Debug\net6.0\Room.pdb
+E:\Visual Studio Projects\Room\Room\obj\Debug\net6.0\Room.csproj.AssemblyReference.cache
+E:\Visual Studio Projects\Room\Room\obj\Debug\net6.0\Room.GeneratedMSBuildEditorConfig.editorconfig
+E:\Visual Studio Projects\Room\Room\obj\Debug\net6.0\Room.AssemblyInfoInputs.cache
+E:\Visual Studio Projects\Room\Room\obj\Debug\net6.0\Room.AssemblyInfo.cs
+E:\Visual Studio Projects\Room\Room\obj\Debug\net6.0\Room.csproj.CoreCompileInputs.cache
+E:\Visual Studio Projects\Room\Room\obj\Debug\net6.0\Room.dll
+E:\Visual Studio Projects\Room\Room\obj\Debug\net6.0\refint\Room.dll
+E:\Visual Studio Projects\Room\Room\obj\Debug\net6.0\Room.pdb
+E:\Visual Studio Projects\Room\Room\obj\Debug\net6.0\Room.genruntimeconfig.cache
+E:\Visual Studio Projects\Room\Room\obj\Debug\net6.0\ref\Room.dll
+E:\Visual Studio Projects\Room\Room\bin\Debug\net6.0\Newtonsoft.Json.dll
+E:\Visual Studio Projects\Room\Room\obj\Debug\net6.0\Room.csproj.CopyComplete
