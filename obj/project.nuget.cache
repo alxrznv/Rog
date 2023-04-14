@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "rZ0DnyDGTkTkgCqZVD92v/zlRVlQjyePB+Xz4w/IKxq5mX0w2e9gAYFMVRBJ0HsbOBwCqfeEo9qMiTn0+08Vjg==",
+  "dgSpecHash": "MF3K/N+rssJbWWcA231qFCNGzBtBoU06n46PUjtfM0WKrxQ9P+Qgwdo2eQbYGMVjait0zMk+X9yznpRUwVv1jQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\nickf\\Documents\\VS Code\\sas\\rog\\Rog\\brownyy.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "E:\\Desctop 2\\Rog-Gameplay\\Rog-Gameplay\\brownyy.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\andre\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
   "logs": []
 }
