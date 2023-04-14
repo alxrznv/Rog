@@ -8,6 +8,4 @@ namespace Rog
         public int Index { get; set; }
         public string Sprite { get; set; }
     }
-
-    
 }

@@ -5,10 +5,10 @@ using System.IO;
 using System.Runtime.InteropServices;
 using System.Text.Json;
 using static System.Runtime.InteropServices.JavaScript.JSType;
+using brownyy;
 
 namespace Rog
 {
-    
     public class Program
     {
         static void Draw(object argument)
@@ -31,6 +31,25 @@ namespace Rog
             {
                 Console.Write(str_kadr[i]);
                 Console.SetCursorPosition(Drawen_Kadr.Position_x, Drawen_Kadr.Position_y + 1 + i);
+            }
+        }
+        static void DeleteKadr(object argument)
+        {
+            Char[] simvols = { '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '-', '=', '+', '`', '{', '[', '}', ']', '|', ';', ':', '"', '<', '>', ',', '.', '/', '?' };
+            KadrClass Deleted_Kadr = argument as KadrClass;
+            System.String[] str_kadr = Deleted_Kadr.Kadr.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+            for (int i = 0; i < str_kadr.Length; i++)
+            {
+                for (int j = 0; j < simvols.Length; j++)
+                {
+                    str_kadr[i] = str_kadr[i].Replace(simvols[j], ' ');
+                }
+            }
+            Console.SetCursorPosition(Deleted_Kadr.Position_x, Deleted_Kadr.Position_y);
+            for (int i = 0; i < str_kadr.Length; i++)
+            {
+                Console.Write(str_kadr[i]);
+                Console.SetCursorPosition(Deleted_Kadr.Position_x, Deleted_Kadr.Position_y + 1 + i);
             }
         }
         static void Delete(object argument)
@@ -126,73 +145,48 @@ namespace Rog
             RoomClass Gnom_molot_minimap = JsonSerializer.Deserialize<RoomClass>(data27);
 
 
-            Room_1.Index = 1;
             Room_1.Position_x = 9;
             Room_1.Position_y = 39;
-            Room_2.Index = 2;
             Room_2.Position_x = 89;
             Room_2.Position_y = 39;
-
-            Room_2.Index = 2;
-            Room_2.Position_x = 89;
-            Room_2.Position_y = 39;
-            Room_3.Index = 3;
             Room_3.Position_x = 169;
             Room_3.Position_y = 39;
-            Room_4.Index = 4;
             Room_4.Position_x = 9;
             Room_4.Position_y = 21;
-            Room_5.Index = 5;
             Room_5.Position_x = 89;
             Room_5.Position_y = 21;
-            Room_6.Index = 6;
             Room_6.Position_x = 169;
             Room_6.Position_y = 21;
-            Room_7.Index = 7;
             Room_7.Position_x = 9;
             Room_7.Position_y = 3;
-            Room_8.Index = 8;
             Room_8.Position_x = 89;
             Room_8.Position_y = 3;
-            Room_9.Index = 9;
             Room_9.Position_x = 169;
             Room_9.Position_y = 3;
 
-            Corridor_47.Index = 47;
             Corridor_47.Position_x = 34;
             Corridor_47.Position_y = 13;
-            Corridor_14.Index = 14;
             Corridor_14.Position_x = 34;
             Corridor_14.Position_y = 31;
-            Corridor_58.Index = 58;
             Corridor_58.Position_x = 114;
             Corridor_58.Position_y = 13;
-            Corridor_25.Index = 25;
             Corridor_25.Position_x = 114;
             Corridor_25.Position_y = 31;
-            Corridor_69.Index = 69;
             Corridor_69.Position_x = 194;
             Corridor_69.Position_y = 13;
-            Corridor_36.Index = 36;
             Corridor_36.Position_x = 194;
             Corridor_36.Position_y = 31;
 
-            Corridor_78.Index = 78;
             Corridor_78.Position_x = 68;
             Corridor_78.Position_y = 5;
-            Corridor_45.Index = 45;
             Corridor_45.Position_x = 68;
             Corridor_45.Position_y = 23;
-            Corridor_12.Index = 12;
             Corridor_12.Position_x = 68;
             Corridor_12.Position_y = 41;
-            Corridor_89.Index = 89;
             Corridor_89.Position_x = 148;
             Corridor_89.Position_y = 5;
-            Corridor_56.Index = 56;
             Corridor_56.Position_x = 148;
             Corridor_56.Position_y = 23;
-            Corridor_23.Index = 23;
             Corridor_23.Position_x = 148;
             Corridor_23.Position_y = 41;
 
@@ -206,11 +200,11 @@ namespace Rog
             Weapon pistol = new Weapon("Пистолет", 20, 666); //цены будут позже
             Weapon tommygun = new Weapon("Автомат", 50, 666);
             Weapon electro = new Weapon("Электро", 80, 666);
-            Battle Batttle = new Battle();
+            Battle batttle = new Battle();
             Inventory inventory = new Inventory();
             Dealer dealer = new Dealer();
 
-
+            Random rnd = new Random();
 
             /*{
                 RoomClass Automat_Human_uron_third = new RoomClass();
@@ -263,74 +257,324 @@ namespace Rog
             }
             Console.Clear ();
             Pole();
+            inventory.Inv(player);
+            int value1 = 0;
+            int value2 = 1;
+            int value3 = 0;
+            int value4 = 0;
+            int value5 = 0;
+            int value6 = 0;
+            int value7 = 0;
+            int value8 = 0;
+            int value9 = 0;
+            int enemy1 = 0;
+            int enemy2 = 0;
+            int enemy3 = 0;
+            int enemy4 = 0;
+            int enemy5 = 0;
+            int enemy6 = 0;
+            int enemy7 = 0;
+            int enemy8 = 0;
+            int enemy9 = 0;
+            while ((value1 == 0) && (value5 == 0) && (value3 == 0))
+            {
+                value1 = rnd.Next(2);
+                value5 = rnd.Next(2);
+                value3 = rnd.Next(2);
+            }
+            if (value1 == 1)
+            {
+                value4 = rnd.Next(2);
+            }
+            if (value3 == 1)
+            {
+                value6 = rnd.Next(2);
+            }
+            if (value5 == 1)
+            {
+                 value4 = 0;
+                 value8 = 0;
+                 value6 = 0;
+                while ((value4 == 0) && (value8 == 0) && (value6 == 0))
+                {
+                    value4 = rnd.Next(2);
+                    value8 = rnd.Next(2);
+                    value6 = rnd.Next(2);
+                }
+            }
+            if (value4 == 1)
+            {
+                value7 = rnd.Next(2);
+            }
+            if (value6 == 1)
+            {
+                value9 = rnd.Next(2);
+            }
+            bool exit = false;
+            bool dimond = false;
+            Room_5.Index = 1;
+            Room_2.Index = 0;
+            // 1 - fight 2 - case 3 - exit
+            // 1 - Dog 2 - dwarf with molot 3 - dwarf with automat
+            while (exit == false)
+            {
+                if (value1 == 1) {
+                    if (exit == false)
+                    {
+                        Room_1.Index = rnd.Next(1, 4);
+                        if (Room_1.Index == 3) { exit = true; }
+                        if (Room_1.Index == 1) { enemy1 = rnd.Next(1, 4); }
+                    }
+                    else { Room_1.Index = rnd.Next(1, 3);
+                        if (Room_1.Index == 1) { enemy1 = rnd.Next(1, 4); }
+                    }
+                }
+                if (value3 == 1)
+                {
+                    if (exit == false)
+                    {
+                        Room_3.Index = rnd.Next(1, 4);
+                        if (Room_3.Index == 3) { exit = true; }
+                        if (Room_3.Index == 1) { enemy3 = rnd.Next(1, 4); }
+                    }
+                    else { Room_3.Index = rnd.Next(1, 3);
+                        if (Room_3.Index == 1) { enemy3 = rnd.Next(1, 4); }
+                    }
+                }
+                if (value4 == 1)
+                {
+                    if (exit == false)
+                    {
+                        Room_4.Index = rnd.Next(1, 4);
+                        if (Room_4.Index == 3) { exit = true; }
+                        if (Room_4.Index == 1) { enemy4 = rnd.Next(1, 4); }
+                    }
+                    else { Room_4.Index = rnd.Next(1, 3);
+                        if (Room_4.Index == 1) { enemy4 = rnd.Next(1, 4); }
+                    }
+                }
+                if (value6 == 1)
+                {
+                    if (exit == false)
+                    {
+                        Room_6.Index = rnd.Next(1, 4);
+                        if (Room_6.Index == 3) { exit = true; }
+                        if (Room_6.Index == 1) { enemy6 = rnd.Next(1, 4); }
+                    }
+                    else { Room_6.Index = rnd.Next(1, 3);
+                        if (Room_6.Index == 1) { enemy6 = rnd.Next(1, 4); }
+                    }
+                }
+                if (value7 == 1)
+                {
+                    if (exit == false)
+                    {
+                        Room_7.Index = rnd.Next(1, 4);
+                        if (Room_7.Index == 3) { exit = true; }
+                        if (Room_7.Index == 1) { enemy7 = rnd.Next(1, 4); }
+                    }
+                    else { Room_7.Index = rnd.Next(1, 3);
+                        if (Room_7.Index == 1) { enemy7 = rnd.Next(1, 4); }
+                    }
+                }
+                if (value8 == 1)
+                {
+                    if (exit == false)
+                    {
+                        Room_8.Index = rnd.Next(1, 4);
+                        if (Room_8.Index == 3) { exit = true; }
+                        if (Room_8.Index == 1) { enemy8 = rnd.Next(1, 4); }
+                    }
+                    else { Room_8.Index = rnd.Next(1, 3);
+                        if (Room_8.Index == 1) { enemy8 = rnd.Next(1, 4); }
+                    }
+                }
+                if (value9 == 1)
+                {
+                    if (exit == false)
+                    {
+                        Room_9.Index = rnd.Next(1, 4);
+                        if (Room_9.Index == 3) { exit = true; }
+                        if (Room_9.Index == 1) { enemy9 = rnd.Next(1, 4); }
+                    }
+                    else { Room_9.Index = rnd.Next(1, 3);
+                        if (Room_9.Index == 1) { enemy9 = rnd.Next(1, 4); }
+                    }
+                }
+            }
+            Console.SetCursorPosition(30, 53);
+            Console.Write("1.{0}", Room_1.Index);
+            Console.SetCursorPosition(30, 54);
+            Console.Write("2.{0}", Room_2.Index);
+            Console.SetCursorPosition(30, 55);
+            Console.Write("3.{0}", Room_3.Index);
+            Console.SetCursorPosition(30, 56);
+            Console.Write("4.{0}", Room_4.Index);
+            Console.SetCursorPosition(30, 57);
+            Console.Write("5.{0}", Room_5.Index);
+            Console.SetCursorPosition(30, 58);
+            Console.Write("6.{0}", Room_6.Index);
+            Console.SetCursorPosition(30, 59);
+            Console.Write("7.{0}", Room_7.Index);
+            Console.SetCursorPosition(30, 60);
+            Console.Write("8.{0}", Room_8.Index);
+            Console.SetCursorPosition(30, 61);
+            Console.Write("9.{0}", Room_9.Index);
             Thread.Sleep(1);
             ParameterizedThreadStart draw_room_1 = new ParameterizedThreadStart(Draw);
-            Thread draw_room_1_thread = new Thread(draw_room_1);
-            draw_room_1_thread.Start((object)Room_1);
-            Thread.Sleep(1);
             Thread draw_room_2_thread = new Thread(draw_room_1);
             draw_room_2_thread.Start((object)Room_2);
-            Thread.Sleep(1);
-            Thread draw_room_3_thread = new Thread(draw_room_1);
-            draw_room_3_thread.Start((object)Room_3);
-            Thread.Sleep(1);
-            Thread draw_room_4_thread = new Thread(draw_room_1);
-            draw_room_4_thread.Start((object)Room_4);
-            Thread.Sleep(1);
-            Thread draw_room_5_thread = new Thread(draw_room_1);
-            draw_room_5_thread.Start((object)Room_5);
-            Thread.Sleep(1);
-            Thread draw_room_6_thread = new Thread(draw_room_1);
-            draw_room_6_thread.Start((object)Room_6);
-            Thread.Sleep(1);
-            Thread draw_room_7_thread = new Thread(draw_room_1);
-            draw_room_7_thread.Start((object)Room_7);
-            Thread.Sleep(1);
-            Thread draw_room_8_thread = new Thread(draw_room_1);
-            draw_room_8_thread.Start((object)Room_8);
-            Thread.Sleep(1);
-            Thread draw_room_9_thread = new Thread(draw_room_1);
-            draw_room_9_thread.Start((object)Room_9);
-            Thread.Sleep(1);
+            
+            if (value1 == 1)
+            {
+                Thread.Sleep(1);
+                Thread draw_room_1_thread = new Thread(draw_room_1);
+                draw_room_1_thread.Start((object)Room_1);
+            }
+            if (value3 == 1)
+            {
+                Thread.Sleep(1);
+                Thread draw_room_3_thread = new Thread(draw_room_1);
+                draw_room_3_thread.Start((object)Room_3);
+            }
+            if (value5 == 1)
+            {
+                Thread.Sleep(1);
+                Thread draw_room_5_thread = new Thread(draw_room_1);
+                draw_room_5_thread.Start((object)Room_5);
+            }
+            if (value6 == 1)
+            {
+                Thread.Sleep(1);
+                Thread draw_room_6_thread = new Thread(draw_room_1);
+                draw_room_6_thread.Start((object)Room_6);
+            }
+            if (value4 == 1)
+            {
+                Thread.Sleep(1);
+                Thread draw_room_4_thread = new Thread(draw_room_1);
+                draw_room_4_thread.Start((object)Room_4);
+            }
+            if (value8 == 1)
+            {
+                Thread.Sleep(1);
+                Thread draw_room_8_thread = new Thread(draw_room_1);
+                draw_room_8_thread.Start((object)Room_8);
+            }
+            if (value7 == 1)
+            {
+                Thread.Sleep(1);
+                Thread draw_room_7_thread = new Thread(draw_room_1);
+                draw_room_7_thread.Start((object)Room_7);
+            }
+            if (value9 == 1)
+            {
+                Thread.Sleep(1);
+                Thread draw_room_9_thread = new Thread(draw_room_1);
+                draw_room_9_thread.Start((object)Room_9);
+            }
 
+
+            
+            Thread.Sleep(1);
             ParameterizedThreadStart draw_corridor_47 = new ParameterizedThreadStart(Draw);
-            Thread draw_corridor_47_thread = new Thread(draw_corridor_47);
-            draw_corridor_47_thread.Start((object)Corridor_47);
-            Thread.Sleep(1);
-            Thread draw_corridor_14_thread = new Thread(draw_corridor_47);
-            draw_corridor_14_thread.Start((object)Corridor_14);
-            Thread.Sleep(1);
-            Thread draw_corridor_58_thread = new Thread(draw_corridor_47);
-            draw_corridor_58_thread.Start((object)Corridor_58);
-            Thread.Sleep(1);
-            Thread draw_corridor_25_thread = new Thread(draw_corridor_47);
-            draw_corridor_25_thread.Start((object)Corridor_25);
-            Thread.Sleep(1);
-            Thread draw_corridor_69_thread = new Thread(draw_corridor_47);
-            draw_corridor_69_thread.Start((object)Corridor_69);
-            Thread.Sleep(1);
-            Thread draw_corridor_36_thread = new Thread(draw_corridor_47);
-            draw_corridor_36_thread.Start((object)Corridor_36);
-            Thread.Sleep(1);
-
             ParameterizedThreadStart draw_corridor_78 = new ParameterizedThreadStart(Draw);
-            Thread draw_corridor_78_thread = new Thread(draw_corridor_78);
-            draw_corridor_78_thread.Start((object)Corridor_78);
+            if ((value4 == 1) && (value7 == 1))
+            {
+                Thread draw_corridor_47_thread = new Thread(draw_corridor_47);
+                draw_corridor_47_thread.Start((object)Corridor_47);
+                Thread.Sleep(1);
+            }
+            if ((value1 == 1) && (value4 == 1))
+            {
+                Thread draw_corridor_14_thread = new Thread(draw_corridor_47);
+                draw_corridor_14_thread.Start((object)Corridor_14);
+                Thread.Sleep(1);
+            }
+            if ((value5 == 1) && (value8 == 1))
+            {
+                Thread draw_corridor_58_thread = new Thread(draw_corridor_47);
+                draw_corridor_58_thread.Start((object)Corridor_58);
+                Thread.Sleep(1);
+            }
+            if (value5 == 1)
+            {
+                Thread draw_corridor_25_thread = new Thread(draw_corridor_47);
+                draw_corridor_25_thread.Start((object)Corridor_25);
+                Thread.Sleep(1);
+            }
+            if ((value6 == 1) && (value9 == 1))
+            {
+                Thread draw_corridor_69_thread = new Thread(draw_corridor_47);
+                draw_corridor_69_thread.Start((object)Corridor_69);
+                Thread.Sleep(1);
+            }
+            if ((value3 == 1) && (value6 == 1))
+            {
+                Thread draw_corridor_36_thread = new Thread(draw_corridor_47);
+                draw_corridor_36_thread.Start((object)Corridor_36);
+                Thread.Sleep(1);
+            }
+            if ((value7 == 1) && (value8 == 1))
+            {
+                Thread draw_corridor_78_thread = new Thread(draw_corridor_78);
+                draw_corridor_78_thread.Start((object)Corridor_78);
+                Thread.Sleep(1);
+            }
+            if ((value4 == 1) && (value5 == 1))
+            {
+                Thread draw_corridor_45_thread = new Thread(draw_corridor_78);
+                draw_corridor_45_thread.Start((object)Corridor_45);
+                Thread.Sleep(1);
+            }
+            if ((value8 == 1) && (value9 == 1))
+            {
+                Thread draw_corridor_89_thread = new Thread(draw_corridor_78);
+                draw_corridor_89_thread.Start((object)Corridor_89);
+                Thread.Sleep(1);
+            }
+            if ((value5 == 1) && (value6 == 1))
+            {
+                Thread draw_corridor_56_thread = new Thread(draw_corridor_78);
+                draw_corridor_56_thread.Start((object)Corridor_56);
+                Thread.Sleep(1);
+            }
+            if (value1 == 1)
+            {
+                Thread draw_corridor_12_thread = new Thread(draw_corridor_78);
+                draw_corridor_12_thread.Start((object)Corridor_12);
+                Thread.Sleep(1);
+            }
+            if (value3 == 1)
+            {
+                Thread draw_corridor_23_thread = new Thread(draw_corridor_78);
+                draw_corridor_23_thread.Start((object)Corridor_23);
+                Thread.Sleep(1);
+            }
+            /*Dealer.Position_x = 129;
+            Dealer.Position_y = 44;*/
+            /*Dog.Position_x = 129;
+            Dog.Position_y = 44;*/
+            /*Gnom_automat_minimap.Position_x = 129;
+            Gnom_automat_minimap.Position_y = 40;*/
+            /*Gnom_molot_minimap.Position_x = 129;
+            Gnom_molot_minimap.Position_y = 44;*/
             Thread.Sleep(1);
-            Thread draw_corridor_45_thread = new Thread(draw_corridor_78);
-            draw_corridor_45_thread.Start((object)Corridor_45);
+            ParameterizedThreadStart draw_dealer = new ParameterizedThreadStart(Draw);
+            Thread draw_dealer_thread = new Thread(draw_dealer);
+            //draw_dealer_thread.Start((object)Dealer);
             Thread.Sleep(1);
-            Thread draw_corridor_89_thread = new Thread(draw_corridor_78);
-            draw_corridor_89_thread.Start((object)Corridor_89);
+            ParameterizedThreadStart draw_dog = new ParameterizedThreadStart(Draw);
+            Thread draw_dog_thread = new Thread(draw_dog);
+            //draw_dog_thread.Start((object)Dog);
             Thread.Sleep(1);
-            Thread draw_corridor_56_thread = new Thread(draw_corridor_78);
-            draw_corridor_56_thread.Start((object)Corridor_56);
+            ParameterizedThreadStart draw_gnom_automat_minimap = new ParameterizedThreadStart(Draw);
+            Thread draw_gnom_automat_minimap_thread = new Thread(draw_gnom_automat_minimap);
+            //draw_gnom_automat_minimap_thread.Start((object)Gnom_automat_minimap);
             Thread.Sleep(1);
-            Thread draw_corridor_12_thread = new Thread(draw_corridor_78);
-            draw_corridor_12_thread.Start((object)Corridor_12);
-            Thread.Sleep(1);
-            Thread draw_corridor_23_thread = new Thread(draw_corridor_78);
-            draw_corridor_23_thread.Start((object)Corridor_23);
+            ParameterizedThreadStart draw_gnom_molot_minimap = new ParameterizedThreadStart(Draw);
+            Thread draw_gnom_molot_minimap_thread = new Thread(draw_gnom_automat_minimap);
+            //draw_gnom_molot_minimap_thread.Start((object)Gnom_molot_minimap);
             Thread.Sleep(1);
             if (player.Race == 1 )
             {
@@ -341,125 +585,225 @@ namespace Rog
                     Thread delete_hero_human_thread = new Thread(delete_hero_human);
                     ParameterizedThreadStart draw_hero_human = new ParameterizedThreadStart(Draw);
                     Thread draw_hero_human_thread = new Thread(draw_hero_human);
+                    
                     //Console.WriteLine("Положение:\n");
                     switch (player.Position)
                   {
                       case 1:
                             Hero_Human.Position_x = 18;
                             Hero_Human.Position_y = 44;
-                            Hero_Human.Index = 1;
                             Thread.Sleep(1);
                             draw_hero_human_thread.Start((object)Hero_Human);
                             Thread.Sleep(1);
-                            //Console.WriteLine("    @@@\n    @@@\n    #@@\n");
+                            switch (Room_1.Index)
+                            {
+                                case 1:
+                                    switch (enemy1)
+                                    {
+                                            case 1:
+                                            Dog.Position_x = 49;
+                                            Dog.Position_y = 44;
+                                            draw_dog_thread.Start((object)Dog);
+                                            Thread.Sleep(1000);
+                                            batttle.Batttle(chihuahua, player, agilitypotion, sharpshootingpotion,chemistrypotion);
+                                            break;
+                                            case 2:
+                                            Gnom_molot_minimap.Position_x = 49;
+                                            Gnom_molot_minimap.Position_y = 44;
+                                            draw_gnom_molot_minimap_thread.Start((object)Gnom_molot_minimap);
+                                            Thread.Sleep(1000);
+                                            batttle.Batttle(pistoldwarf, player, agilitypotion, sharpshootingpotion, chemistrypotion);
+                                            break;
+                                            case 3:
+                                            Gnom_automat_minimap.Position_x = 49;
+                                            Gnom_automat_minimap.Position_y = 40;
+                                            draw_gnom_automat_minimap_thread.Start((object)Gnom_automat_minimap);
+                                            Thread.Sleep(1000);
+                                            batttle.Batttle(tommygundwarf, player, agilitypotion, sharpshootingpotion, chemistrypotion);
+                                            break;
+                                    }
+                                    break;
+                                case 2:
+                                    Console.SetCursorPosition(0, 61);
+                                    Console.WriteLine("Dimond");
+                                    break;
+                                case 3:
+                                    Dealer.Position_x = 49;
+                                    Dealer.Position_y = 44;
+                                    draw_dealer_thread.Start((object)Dealer);
+
+                                    break;
+                            }
                             break;
                       case 2:
                             Hero_Human.Position_x = 99;
                             Hero_Human.Position_y = 44;
-                            Hero_Human.Index = 2;
                             Thread.Sleep(1);
                             draw_hero_human_thread.Start((object)Hero_Human);
                             Thread.Sleep(1);
-                            //Console.WriteLine("    @@@\n    @@@\n    @#@\n");
                             break;
                       case 3:
                             Hero_Human.Position_x = 180;
                             Hero_Human.Position_y = 44;
-                            Hero_Human.Index = 3;
                             Thread.Sleep(1);
                             draw_hero_human_thread.Start((object)Hero_Human);
                             Thread.Sleep(1);
+                            switch (Room_3.Index)
+                            {
+                                case 1:
+                                    Console.SetCursorPosition(0, 61);
+                                    Console.WriteLine("Fight");
+                                    break;
+                                case 2:
+                                    Console.SetCursorPosition(0, 61);
+                                    Console.WriteLine("Dimond");
+                                    break;
+                                case 3:
+                                    Console.SetCursorPosition(0, 61);
+                                    Console.WriteLine("Exit");
+                                    break;
+                            }
                             //Console.WriteLine("    @@@\n    @@@\n    @@#\n");
                             break;
                       case 4:
                             Hero_Human.Position_x = 18;
                             Hero_Human.Position_y = 26;
-                            Hero_Human.Index = 4;
                             Thread.Sleep(1);
                             draw_hero_human_thread.Start((object)Hero_Human);
                             Thread.Sleep(1);
+                            switch (Room_4.Index)
+                            {
+                                case 1:
+                                    Console.SetCursorPosition(0, 61);
+                                    Console.WriteLine("Fight");
+                                    break;
+                                case 2:
+                                    Console.SetCursorPosition(0, 61);
+                                    Console.WriteLine("Dimond");
+                                    break;
+                                case 3:
+                                    Console.SetCursorPosition(0, 61);
+                                    Console.WriteLine("Exit");
+                                    break;
+                            }
                             //Console.WriteLine("    @@@\n    #@@\n    @@@\n");
-                          break;
+                            break;
                       case 5:
                             Hero_Human.Position_x = 99;
                             Hero_Human.Position_y = 26;
-                            Hero_Human.Index = 5;
                             Thread.Sleep(1);
                             draw_hero_human_thread.Start((object)Hero_Human);
                             Thread.Sleep(1);
+                            switch (Room_5.Index)
+                            {
+                                case 1:
+                                    Console.SetCursorPosition(0, 61);
+                                    Console.WriteLine("Fight");
+                                    break;
+                                case 2:
+                                    Console.SetCursorPosition(0, 61);
+                                    Console.WriteLine("Dimond");
+                                    break;
+                                case 3:
+                                    Console.SetCursorPosition(0, 61);
+                                    Console.WriteLine("Exit");
+                                    break;
+                            }
                             //Console.WriteLine("    @@@\n    @#@\n    @@@\n");
                             break;
                       case 6:
                             Hero_Human.Position_x = 180;
                             Hero_Human.Position_y = 26;
-                            Hero_Human.Index = 6;
                             Thread.Sleep(1);
                             draw_hero_human_thread.Start((object)Hero_Human);
                             Thread.Sleep(1);
+                            switch (Room_6.Index)
+                            {
+                                case 1:
+                                    Console.SetCursorPosition(0, 61);
+                                    Console.WriteLine("Fight");
+                                    break;
+                                case 2:
+                                    Console.SetCursorPosition(0, 61);
+                                    Console.WriteLine("Dimond");
+                                    break;
+                                case 3:
+                                    Console.SetCursorPosition(0, 61);
+                                    Console.WriteLine("Exit");
+                                    break;
+                            }
                             //Console.WriteLine("    @@@\n    @@#\n    @@@\n");
                             break;
                       case 7:
                             Hero_Human.Position_x = 18;
                             Hero_Human.Position_y = 8;
-                            Hero_Human.Index = 7;
                             Thread.Sleep(1);
                             draw_hero_human_thread.Start((object)Hero_Human);
                             Thread.Sleep(1);
+                            switch (Room_7.Index)
+                            {
+                                case 1:
+                                    Console.SetCursorPosition(0, 61);
+                                    Console.WriteLine("Fight");
+                                    break;
+                                case 2:
+                                    Console.SetCursorPosition(0, 61);
+                                    Console.WriteLine("Dimond");
+                                    break;
+                                case 3:
+                                    Console.SetCursorPosition(0, 61);
+                                    Console.WriteLine("Exit");
+                                    break;
+                            }
                             //Console.WriteLine("    #@@\n    @@@\n    @@@\n");
                             break;
                       case 8:
                             Hero_Human.Position_x = 99;
                             Hero_Human.Position_y = 8;
-                            Hero_Human.Index = 7;
                             Thread.Sleep(1);
                             draw_hero_human_thread.Start((object)Hero_Human);
                             Thread.Sleep(1);
+                            switch (Room_8.Index)
+                            {
+                                case 1:
+                                    Console.SetCursorPosition(0, 61);
+                                    Console.WriteLine("Fight");
+                                    break;
+                                case 2:
+                                    Console.SetCursorPosition(0, 61);
+                                    Console.WriteLine("Dimond");
+                                    break;
+                                case 3:
+                                    Console.SetCursorPosition(0, 61);
+                                    Console.WriteLine("Exit");
+                                    break;
+                            }
                             //Console.WriteLine("    @#@\n    @@@\n    @@@\n");
-                          break;
+                            break;
                       case 9:
                             Hero_Human.Position_x = 180;
                             Hero_Human.Position_y = 8;
-                            Hero_Human.Index = 7;
                             Thread.Sleep(1);
                             draw_hero_human_thread.Start((object)Hero_Human);
                             Thread.Sleep(1);
+                            switch (Room_9.Index)
+                            {
+                                case 1:
+                                    Console.SetCursorPosition(0, 61);
+                                    Console.WriteLine("Fight");
+                                    break;
+                                case 2:
+                                    Console.SetCursorPosition(0, 61);
+                                    Console.WriteLine("Dimond");
+                                    break;
+                                case 3:
+                                    Console.SetCursorPosition(0, 61);
+                                    Console.WriteLine("Exit");
+                                    break;
+                            }
                             //Console.WriteLine("    @@#\n    @@@\n    @@@\n");
                             break;
                   }
-                  //Console.WriteLine("Выберите направление перемещения:");
-
-                 /* switch (player.Position)
-                  {
-                      case 1: case 4: case 7:
-                          break;
-                      default:
-                          Console.WriteLine("    < Влево");
-                          break;
-                  }
-                  switch (player.Position)
-                  {
-                      case 3: case 6: case 9:
-                          break;
-                      default:
-                          Console.WriteLine("    > Вправо");
-                          break;
-                  }
-                  switch (player.Position)
-                  {
-                      case 1: case 2: case 3:
-                          break;
-                      default:
-                          Console.WriteLine("    v Вниз");
-                          break;
-                  }
-                  switch (player.Position)
-                  {
-                      case 7: case 8: case 9:
-                          break;
-                      default:
-                          Console.WriteLine("    ^ Вверх");
-                          break;
-                  }*/
 
                   choiceDirection: ConsoleKeyInfo Direction = Console.ReadKey();
                   switch (player.Position)
@@ -476,14 +820,39 @@ namespace Rog
                                     Thread.Sleep(1);
                                     break;
                               case ConsoleKey.UpArrow:
-                                  player.Position += 3;
-                                    Hero_Human.Position_x = 18;
-                                    Hero_Human.Position_y = 44;
-                                    Thread.Sleep(1);
-                                    delete_hero_human_thread.Start((object)Hero_Human);
-                                    Thread.Sleep(1);
+                                    if (value4 == 1)
+                                    {
+                                        player.Position += 3;
+                                        Hero_Human.Position_x = 18;
+                                        Hero_Human.Position_y = 44;
+                                        Thread.Sleep(1);
+                                        delete_hero_human_thread.Start((object)Hero_Human);
+                                        Thread.Sleep(1);
+                                    }
                                     break;
-                              default:
+                                case ConsoleKey.LeftArrow:
+                                    if (Room_1.Index == 3)
+                                    {
+                                        Hero_Human.Position_x = 18;
+                                        Hero_Human.Position_y = 44;
+                                        Thread.Sleep(1);
+                                        delete_hero_human_thread.Start((object)Hero_Human);
+                                        Thread.Sleep(1);
+                                        goto exit;
+                                    }
+                                    break;
+                                case ConsoleKey.DownArrow:
+                                    if (Room_1.Index == 3)
+                                    {
+                                        Hero_Human.Position_x = 18;
+                                        Hero_Human.Position_y = 44;
+                                        Thread.Sleep(1);
+                                        delete_hero_human_thread.Start((object)Hero_Human);
+                                        Thread.Sleep(1);
+                                        goto exit;
+                                    }
+                                    break;
+                                default:
                                   goto choiceDirection;
                           }
                           break;
@@ -492,28 +861,37 @@ namespace Rog
                           switch (Direction.Key)
                           {
                               case ConsoleKey.LeftArrow:
-                                  player.Position--;
-                                    Hero_Human.Position_x = 99;
-                                    Hero_Human.Position_y = 44;
-                                    Thread.Sleep(1);
-                                    delete_hero_human_thread.Start((object)Hero_Human);
-                                    Thread.Sleep(1);
+                                    if (value1 == 1)
+                                    {
+                                        player.Position--;
+                                        Hero_Human.Position_x = 99;
+                                        Hero_Human.Position_y = 44;
+                                        Thread.Sleep(1);
+                                        delete_hero_human_thread.Start((object)Hero_Human);
+                                        Thread.Sleep(1);
+                                    }
                                     break;
                               case ConsoleKey.RightArrow:
-                                  player.Position++;
-                                    Hero_Human.Position_x = 99;
-                                    Hero_Human.Position_y = 44;
-                                    Thread.Sleep(1);
-                                    delete_hero_human_thread.Start((object)Hero_Human);
-                                    Thread.Sleep(1);
+                                    if (value3 == 1)
+                                    {
+                                        player.Position++;
+                                        Hero_Human.Position_x = 99;
+                                        Hero_Human.Position_y = 44;
+                                        Thread.Sleep(1);
+                                        delete_hero_human_thread.Start((object)Hero_Human);
+                                        Thread.Sleep(1);
+                                    }
                                     break;
                               case ConsoleKey.UpArrow:
-                                  player.Position += 3;
-                                    Hero_Human.Position_x = 99;
-                                    Hero_Human.Position_y = 44;
-                                    Thread.Sleep(1);
-                                    delete_hero_human_thread.Start((object)Hero_Human);
-                                    Thread.Sleep(1);
+                                    if (value5 == 1)
+                                    {
+                                        player.Position += 3;
+                                        Hero_Human.Position_x = 99;
+                                        Hero_Human.Position_y = 44;
+                                        Thread.Sleep(1);
+                                        delete_hero_human_thread.Start((object)Hero_Human);
+                                        Thread.Sleep(1);
+                                    }
                                     break;
                               default:
                                   goto choiceDirection;
@@ -532,14 +910,39 @@ namespace Rog
                                     Thread.Sleep(1);
                                     break;
                               case ConsoleKey.UpArrow:
-                                  player.Position += 3;
-                                    Hero_Human.Position_x = 180;
-                                    Hero_Human.Position_y = 44;
-                                    Thread.Sleep(1);
-                                    delete_hero_human_thread.Start((object)Hero_Human);
-                                    Thread.Sleep(1);
+                                    if (value6 == 1)
+                                    {
+                                        player.Position += 3;
+                                        Hero_Human.Position_x = 180;
+                                        Hero_Human.Position_y = 44;
+                                        Thread.Sleep(1);
+                                        delete_hero_human_thread.Start((object)Hero_Human);
+                                        Thread.Sleep(1);
+                                    }
                                     break;
-                              default:
+                                case ConsoleKey.RightArrow:
+                                    if (Room_3.Index == 3)
+                                    {
+                                        Hero_Human.Position_x = 180;
+                                        Hero_Human.Position_y = 44;
+                                        Thread.Sleep(1);
+                                        delete_hero_human_thread.Start((object)Hero_Human);
+                                        Thread.Sleep(1);
+                                        goto exit;
+                                    }
+                                    break;
+                                case ConsoleKey.DownArrow:
+                                    if (Room_3.Index == 3)
+                                    {
+                                        Hero_Human.Position_x = 180;
+                                        Hero_Human.Position_y = 44;
+                                        Thread.Sleep(1);
+                                        delete_hero_human_thread.Start((object)Hero_Human);
+                                        Thread.Sleep(1);
+                                        goto exit;
+                                    }
+                                    break;
+                                default:
                                   goto choiceDirection;
                           }
                           break;
@@ -548,30 +951,51 @@ namespace Rog
                           switch (Direction.Key)
                           {
                               case ConsoleKey.RightArrow:
-                                  player.Position++;
-                                    Hero_Human.Position_x = 18;
-                                    Hero_Human.Position_y = 26;
-                                    Thread.Sleep(1);
-                                    delete_hero_human_thread.Start((object)Hero_Human);
-                                    Thread.Sleep(1);
+                                    if (value5 == 1)
+                                    {
+                                        player.Position++;
+                                        Hero_Human.Position_x = 18;
+                                        Hero_Human.Position_y = 26;
+                                        Thread.Sleep(1);
+                                        delete_hero_human_thread.Start((object)Hero_Human);
+                                        Thread.Sleep(1);
+
+                                    }
                                     break;
                               case ConsoleKey.UpArrow:
-                                  player.Position += 3;
-                                    Hero_Human.Position_x = 18;
-                                    Hero_Human.Position_y = 26;
-                                    Thread.Sleep(1);
-                                    delete_hero_human_thread.Start((object)Hero_Human);
-                                    Thread.Sleep(1);
+                                    if (value7 == 1)
+                                    {
+                                        player.Position += 3;
+                                        Hero_Human.Position_x = 18;
+                                        Hero_Human.Position_y = 26;
+                                        Thread.Sleep(1);
+                                        delete_hero_human_thread.Start((object)Hero_Human);
+                                        Thread.Sleep(1);
+                                    }
                                     break;
                               case ConsoleKey.DownArrow:
-                                  player.Position -= 3;
-                                    Hero_Human.Position_x = 18;
-                                    Hero_Human.Position_y = 26;
-                                    Thread.Sleep(1);
-                                    delete_hero_human_thread.Start((object)Hero_Human);
-                                    Thread.Sleep(1);
+                                    if (value1 == 1)
+                                    {
+                                        player.Position -= 3;
+                                        Hero_Human.Position_x = 18;
+                                        Hero_Human.Position_y = 26;
+                                        Thread.Sleep(1);
+                                        delete_hero_human_thread.Start((object)Hero_Human);
+                                        Thread.Sleep(1);
+                                    }
                                     break;
-                              default:
+                                case ConsoleKey.LeftArrow:
+                                    if (Room_4.Index == 3)
+                                    {
+                                        Hero_Human.Position_x = 18;
+                                        Hero_Human.Position_y = 26;
+                                        Thread.Sleep(1);
+                                        delete_hero_human_thread.Start((object)Hero_Human);
+                                        Thread.Sleep(1);
+                                        goto exit;
+                                    }
+                                    break;
+                                default:
                                   goto choiceDirection;
                           }
                           break;
@@ -580,28 +1004,38 @@ namespace Rog
                           switch (Direction.Key)
                           {
                               case ConsoleKey.LeftArrow:
-                                  player.Position--;
-                                    Hero_Human.Position_x = 99;
-                                    Hero_Human.Position_y = 26;
-                                    Thread.Sleep(1);
-                                    delete_hero_human_thread.Start((object)Hero_Human);
-                                    Thread.Sleep(1);
+                                    if (value4 == 1)
+                                    {
+                                        player.Position--;
+                                        Hero_Human.Position_x = 99;
+                                        Hero_Human.Position_y = 26;
+                                        Thread.Sleep(1);
+                                        delete_hero_human_thread.Start((object)Hero_Human);
+                                        Thread.Sleep(1);
+
+                                    }
                                     break;
                               case ConsoleKey.RightArrow:
-                                  player.Position++;
-                                    Hero_Human.Position_x = 99;
-                                    Hero_Human.Position_y = 26;
-                                    Thread.Sleep(1);
-                                    delete_hero_human_thread.Start((object)Hero_Human);
-                                    Thread.Sleep(1);
+                                    if (value6 == 1)
+                                    {
+                                        player.Position++;
+                                        Hero_Human.Position_x = 99;
+                                        Hero_Human.Position_y = 26;
+                                        Thread.Sleep(1);
+                                        delete_hero_human_thread.Start((object)Hero_Human);
+                                        Thread.Sleep(1);
+                                    }
                                     break;
                               case ConsoleKey.UpArrow:
-                                  player.Position += 3;
-                                    Hero_Human.Position_x = 99;
-                                    Hero_Human.Position_y = 26;
-                                    Thread.Sleep(1);
-                                    delete_hero_human_thread.Start((object)Hero_Human);
-                                    Thread.Sleep(1);
+                                    if (value8 == 1)
+                                    {
+                                        player.Position += 3;
+                                        Hero_Human.Position_x = 99;
+                                        Hero_Human.Position_y = 26;
+                                        Thread.Sleep(1);
+                                        delete_hero_human_thread.Start((object)Hero_Human);
+                                        Thread.Sleep(1);
+                                    }
                                     break;
                               case ConsoleKey.DownArrow:
                                   player.Position -= 3;
@@ -620,30 +1054,51 @@ namespace Rog
                           switch (Direction.Key)
                           {
                               case ConsoleKey.LeftArrow:
-                                  player.Position--;
-                                    Hero_Human.Position_x = 180;
-                                    Hero_Human.Position_y = 26;
-                                    Thread.Sleep(1);
-                                    delete_hero_human_thread.Start((object)Hero_Human);
-                                    Thread.Sleep(1);
+                                    if (value5 == 1)
+                                    {
+                                        player.Position--;
+                                        Hero_Human.Position_x = 180;
+                                        Hero_Human.Position_y = 26;
+                                        Thread.Sleep(1);
+                                        delete_hero_human_thread.Start((object)Hero_Human);
+                                        Thread.Sleep(1);
+                                    }
                                     break;
                               case ConsoleKey.UpArrow:
-                                  player.Position += 3;
-                                    Hero_Human.Position_x = 180;
-                                    Hero_Human.Position_y = 26;
-                                    Thread.Sleep(1);
-                                    delete_hero_human_thread.Start((object)Hero_Human);
-                                    Thread.Sleep(1);
+                                    if (value9 == 1)
+                                    {
+                                        player.Position += 3;
+                                        Hero_Human.Position_x = 180;
+                                        Hero_Human.Position_y = 26;
+                                        Thread.Sleep(1);
+                                        delete_hero_human_thread.Start((object)Hero_Human);
+                                        Thread.Sleep(1);
+
+                                    }
                                     break;
                               case ConsoleKey.DownArrow:
-                                  player.Position -= 3;
-                                    Hero_Human.Position_x = 180;
-                                    Hero_Human.Position_y = 26;
-                                    Thread.Sleep(1);
-                                    delete_hero_human_thread.Start((object)Hero_Human);
-                                    Thread.Sleep(1);
+                                    if (value3 == 1)
+                                    {
+                                        player.Position -= 3;
+                                        Hero_Human.Position_x = 180;
+                                        Hero_Human.Position_y = 26;
+                                        Thread.Sleep(1);
+                                        delete_hero_human_thread.Start((object)Hero_Human);
+                                        Thread.Sleep(1);
+                                    }
                                     break;
-                              default:
+                                case ConsoleKey.RightArrow:
+                                    if (Room_6.Index == 3)
+                                    {
+                                        Hero_Human.Position_x = 180;
+                                        Hero_Human.Position_y = 26;
+                                        Thread.Sleep(1);
+                                        delete_hero_human_thread.Start((object)Hero_Human);
+                                        Thread.Sleep(1);
+                                        goto exit;
+                                    }
+                                    break;
+                                default:
                                   goto choiceDirection;
                           }
                           break;
@@ -652,22 +1107,49 @@ namespace Rog
                           switch (Direction.Key)
                           {
                               case ConsoleKey.RightArrow:
-                                  player.Position++;
-                                    Hero_Human.Position_x = 18;
-                                    Hero_Human.Position_y = 8;
-                                    Thread.Sleep(1);
-                                    delete_hero_human_thread.Start((object)Hero_Human);
-                                    Thread.Sleep(1);
-                                    break;
+                                    if (value8 == 1) {
+                                        player.Position++;
+                                        Hero_Human.Position_x = 18;
+                                        Hero_Human.Position_y = 8;
+                                        Thread.Sleep(1);
+                                        delete_hero_human_thread.Start((object)Hero_Human);
+                                        Thread.Sleep(1);
+                                    }
+                                     break;
                               case ConsoleKey.DownArrow:
-                                  player.Position -= 3;
-                                    Hero_Human.Position_x = 18;
-                                    Hero_Human.Position_y = 8;
-                                    Thread.Sleep(1);
-                                    delete_hero_human_thread.Start((object)Hero_Human);
-                                    Thread.Sleep(1);
+                                    if (value4 == 1)
+                                    {
+                                        player.Position -= 3;
+                                        Hero_Human.Position_x = 18;
+                                        Hero_Human.Position_y = 8;
+                                        Thread.Sleep(1);
+                                        delete_hero_human_thread.Start((object)Hero_Human);
+                                        Thread.Sleep(1);
+                                    }
                                     break;
-                              default:
+                                case ConsoleKey.LeftArrow:
+                                    if (Room_7.Index == 3)
+                                    {
+                                        Hero_Human.Position_x = 18;
+                                        Hero_Human.Position_y = 8;
+                                        Thread.Sleep(1);
+                                        delete_hero_human_thread.Start((object)Hero_Human);
+                                        Thread.Sleep(1);
+                                        goto exit;
+                                    }
+                                    break;
+                                case ConsoleKey.UpArrow:
+                                    if (Room_7.Index == 3)
+                                    {
+                                        Hero_Human.Position_x = 18;
+                                        Hero_Human.Position_y = 8;
+                                        Thread.Sleep(1);
+                                        delete_hero_human_thread.Start((object)Hero_Human);
+                                        Thread.Sleep(1);
+                                        goto exit;
+                                    }
+                                    break;
+                                default:
                                   goto choiceDirection;
                           }
                           break;
@@ -676,35 +1158,45 @@ namespace Rog
                           switch (Direction.Key)
                           {
                               case ConsoleKey.LeftArrow:
-                                  player.Position--;
-                                    Hero_Human.Position_x = 99;
-                                    Hero_Human.Position_y = 8;
-                                    Thread.Sleep(1);
-                                    delete_hero_human_thread.Start((object)Hero_Human);
-                                    Thread.Sleep(1);
+                                    if (value7 == 1) {
+                                        player.Position--;
+                                        Hero_Human.Position_x = 99;
+                                        Hero_Human.Position_y = 8;
+                                        Thread.Sleep(1);
+                                        delete_hero_human_thread.Start((object)Hero_Human);
+                                        Thread.Sleep(1);
+                                    }
                                     break;
                               case ConsoleKey.RightArrow:
-                                  player.Position++;
-                                    Hero_Human.Position_x = 99;
-                                    Hero_Human.Position_y = 8;
-                                    Thread.Sleep(1);
-                                    delete_hero_human_thread.Start((object)Hero_Human);
-                                    Thread.Sleep(1);
+                                    if (value9 == 1) {
+                                        player.Position++;
+                                        Hero_Human.Position_x = 99;
+                                        Hero_Human.Position_y = 8;
+                                        Thread.Sleep(1);
+                                        delete_hero_human_thread.Start((object)Hero_Human);
+                                        Thread.Sleep(1);
+                                    }
                                     break;
                               case ConsoleKey.UpArrow:
-                                    Hero_Human.Position_x = 99;
-                                    Hero_Human.Position_y = 8;
-                                    Thread.Sleep(1);
-                                    delete_hero_human_thread.Start((object)Hero_Human);
-                                    Thread.Sleep(1);
-                                    goto exit;
+                                    if (Room_8.Index == 3) {
+                                        Hero_Human.Position_x = 99;
+                                        Hero_Human.Position_y = 8;
+                                        Thread.Sleep(1);
+                                        delete_hero_human_thread.Start((object)Hero_Human);
+                                        Thread.Sleep(1);
+                                        goto exit;
+                                    }
+                                    break;
                               case ConsoleKey.DownArrow:
-                                  player.Position -= 3;
-                                    Hero_Human.Position_x = 99;
-                                    Hero_Human.Position_y = 8;
-                                    Thread.Sleep(1);
-                                    delete_hero_human_thread.Start((object)Hero_Human);
-                                    Thread.Sleep(1);
+                                    if (value5 == 1)
+                                    {
+                                        player.Position -= 3;
+                                        Hero_Human.Position_x = 99;
+                                        Hero_Human.Position_y = 8;
+                                        Thread.Sleep(1);
+                                        delete_hero_human_thread.Start((object)Hero_Human);
+                                        Thread.Sleep(1);
+                                    }
                                     break;
                               default:
                                   goto choiceDirection;
@@ -715,22 +1207,52 @@ namespace Rog
                           switch (Direction.Key)
                           {
                               case ConsoleKey.LeftArrow:
-                                  player.Position--;
-                                    Hero_Human.Position_x = 180;
-                                    Hero_Human.Position_y = 8;
-                                    Thread.Sleep(1);
-                                    delete_hero_human_thread.Start((object)Hero_Human);
-                                    Thread.Sleep(1);
+                                    if (value8 == 1)
+                                    {
+                                        player.Position--;
+                                        Hero_Human.Position_x = 180;
+                                        Hero_Human.Position_y = 8;
+                                        Thread.Sleep(1);
+                                        delete_hero_human_thread.Start((object)Hero_Human);
+                                        Thread.Sleep(1);
+
+                                    }
                                     break;
                               case ConsoleKey.DownArrow:
-                                  player.Position -= 3;
-                                    Hero_Human.Position_x = 180;
-                                    Hero_Human.Position_y = 8;
-                                    Thread.Sleep(1);
-                                    delete_hero_human_thread.Start((object)Hero_Human);
-                                    Thread.Sleep(1);
+                                    if (value6 == 1)
+                                    {
+                                        player.Position -= 3;
+                                        Hero_Human.Position_x = 180;
+                                        Hero_Human.Position_y = 8;
+                                        Thread.Sleep(1);
+                                        delete_hero_human_thread.Start((object)Hero_Human);
+                                        Thread.Sleep(1);
+
+                                    }
                                     break;
-                              default:
+                                case ConsoleKey.RightArrow:
+                                    if (Room_9.Index == 3)
+                                    {
+                                        Hero_Human.Position_x = 180;
+                                        Hero_Human.Position_y = 8;
+                                        Thread.Sleep(1);
+                                        delete_hero_human_thread.Start((object)Hero_Human);
+                                        Thread.Sleep(1);
+                                        goto exit;
+                                    }
+                                    break;
+                                case ConsoleKey.UpArrow:
+                                    if (Room_9.Index == 3)
+                                    {
+                                        Hero_Human.Position_x = 180;
+                                        Hero_Human.Position_y = 8;
+                                        Thread.Sleep(1);
+                                        delete_hero_human_thread.Start((object)Hero_Human);
+                                        Thread.Sleep(1);
+                                        goto exit;
+                                    }
+                                    break;
+                                default:
                                   goto choiceDirection;
                           }
                           break;
@@ -754,7 +1276,6 @@ namespace Rog
                         case 1:
                             Hero_Elf.Position_x = 15;
                             Hero_Elf.Position_y = 41;
-                            Hero_Elf.Index = 1;
                             Thread.Sleep(1);
                             draw_hero_elf_thread.Start((object)Hero_Elf);
                             Thread.Sleep(1);
@@ -762,7 +1283,6 @@ namespace Rog
                         case 2:
                             Hero_Elf.Position_x = 96;
                             Hero_Elf.Position_y = 41;
-                            Hero_Elf.Index = 2;
                             Thread.Sleep(1);
                             draw_hero_elf_thread.Start((object)Hero_Elf);
                             Thread.Sleep(1);
@@ -770,7 +1290,6 @@ namespace Rog
                         case 3:
                             Hero_Elf.Position_x = 177;
                             Hero_Elf.Position_y = 41;
-                            Hero_Elf.Index = 3;
                             Thread.Sleep(1);
                             draw_hero_elf_thread.Start((object)Hero_Elf);
                             Thread.Sleep(1);
@@ -778,7 +1297,6 @@ namespace Rog
                         case 4:
                             Hero_Elf.Position_x = 15;
                             Hero_Elf.Position_y = 23;
-                            Hero_Elf.Index = 4;
                             Thread.Sleep(1);
                             draw_hero_elf_thread.Start((object)Hero_Elf);
                             Thread.Sleep(1);
@@ -786,7 +1304,6 @@ namespace Rog
                         case 5:
                             Hero_Elf.Position_x = 96;
                             Hero_Elf.Position_y = 23;
-                            Hero_Elf.Index = 5;
                             Thread.Sleep(1);
                             draw_hero_elf_thread.Start((object)Hero_Elf);
                             Thread.Sleep(1);
@@ -794,7 +1311,6 @@ namespace Rog
                         case 6:
                             Hero_Elf.Position_x = 177;
                             Hero_Elf.Position_y = 23;
-                            Hero_Elf.Index = 6;
                             Thread.Sleep(1);
                             draw_hero_elf_thread.Start((object)Hero_Elf);
                             Thread.Sleep(1);
@@ -802,7 +1318,6 @@ namespace Rog
                         case 7:
                             Hero_Elf.Position_x = 15;
                             Hero_Elf.Position_y = 5;
-                            Hero_Elf.Index = 7;
                             Thread.Sleep(1);
                             draw_hero_elf_thread.Start((object)Hero_Elf);
                             Thread.Sleep(1);
@@ -810,7 +1325,6 @@ namespace Rog
                         case 8:
                             Hero_Elf.Position_x = 96;
                             Hero_Elf.Position_y = 5;
-                            Hero_Elf.Index = 8;
                             Thread.Sleep(1);
                             draw_hero_elf_thread.Start((object)Hero_Elf);
                             Thread.Sleep(1);
@@ -818,7 +1332,6 @@ namespace Rog
                         case 9:
                             Hero_Elf.Position_x = 177;
                             Hero_Elf.Position_y = 5;
-                            Hero_Elf.Index = 9;
                             Thread.Sleep(1);
                             draw_hero_elf_thread.Start((object)Hero_Elf);
                             Thread.Sleep(1);
@@ -839,12 +1352,37 @@ namespace Rog
                                     Thread.Sleep(1);
                                     break;
                                 case ConsoleKey.UpArrow:
-                                    player.Position += 3;
-                                    Hero_Elf.Position_x = 15;
-                                    Hero_Elf.Position_y = 41;
-                                    Thread.Sleep(1);
-                                    delete_hero_elf_thread.Start((object)Hero_Elf);
-                                    Thread.Sleep(1);
+                                    if (value4 == 1)
+                                    {
+                                        player.Position += 3;
+                                        Hero_Elf.Position_x = 15;
+                                        Hero_Elf.Position_y = 41;
+                                        Thread.Sleep(1);
+                                        delete_hero_elf_thread.Start((object)Hero_Elf);
+                                        Thread.Sleep(1);
+                                    }
+                                        break;
+                                case ConsoleKey.LeftArrow:
+                                    if (Room_1.Index == 3)
+                                    {
+                                        Hero_Human.Position_x = 15;
+                                        Hero_Human.Position_y = 41;
+                                        Thread.Sleep(1);
+                                        delete_hero_elf_thread.Start((object)Hero_Elf);
+                                        Thread.Sleep(1);
+                                        goto exit;
+                                    }
+                                    break;
+                                case ConsoleKey.DownArrow:
+                                    if (Room_1.Index == 3)
+                                    {
+                                        Hero_Human.Position_x = 15;
+                                        Hero_Human.Position_y = 41;
+                                        Thread.Sleep(1);
+                                        delete_hero_elf_thread.Start((object)Hero_Elf);
+                                        Thread.Sleep(1);
+                                        goto exit;
+                                    }
                                     break;
                                 default:
                                     goto choiceDirection;
@@ -855,30 +1393,37 @@ namespace Rog
                             switch (Direction.Key)
                             {
                                 case ConsoleKey.LeftArrow:
-                                    player.Position--;
-                                    Hero_Elf.Position_x = 96;
-                                    Hero_Elf.Position_y = 41;
-                                    Thread.Sleep(1);
-
-                                    delete_hero_elf_thread.Start((object)Hero_Elf);
-                                    Thread.Sleep(1);
+                                    if (value1 == 1)
+                                    {
+                                        player.Position--;
+                                        Hero_Elf.Position_x = 96;
+                                        Hero_Elf.Position_y = 41;
+                                        Thread.Sleep(1);
+                                        delete_hero_elf_thread.Start((object)Hero_Elf);
+                                        Thread.Sleep(1);
+                                    }
                                     break;
                                 case ConsoleKey.RightArrow:
-                                    player.Position++;
-                                    Hero_Elf.Position_x = 96;
-                                    Hero_Elf.Position_y = 41;
-                                    Thread.Sleep(1);
-
-                                    delete_hero_elf_thread.Start((object)Hero_Elf);
-                                    Thread.Sleep(1);
+                                    if (value3 == 1)
+                                    {
+                                        player.Position++;
+                                        Hero_Elf.Position_x = 96;
+                                        Hero_Elf.Position_y = 41;
+                                        Thread.Sleep(1);
+                                        delete_hero_elf_thread.Start((object)Hero_Elf);
+                                        Thread.Sleep(1);
+                                    }
                                     break;
                                 case ConsoleKey.UpArrow:
-                                    player.Position += 3;
-                                    Hero_Elf.Position_x = 96;
-                                    Hero_Elf.Position_y = 41;
-                                    Thread.Sleep(1);
-                                    delete_hero_elf_thread.Start((object)Hero_Elf);
-                                    Thread.Sleep(1);
+                                    if (value5 == 1)
+                                    {
+                                        player.Position += 3;
+                                        Hero_Elf.Position_x = 96;
+                                        Hero_Elf.Position_y = 41;
+                                        Thread.Sleep(1);
+                                        delete_hero_elf_thread.Start((object)Hero_Elf);
+                                        Thread.Sleep(1);
+                                    }
                                     break;
                                 default:
                                     goto choiceDirection;
@@ -897,12 +1442,37 @@ namespace Rog
                                     Thread.Sleep(1);
                                     break;
                                 case ConsoleKey.UpArrow:
-                                    player.Position += 3;
-                                    Hero_Elf.Position_x = 177;
-                                    Hero_Elf.Position_y = 41;
-                                    Thread.Sleep(1);
-                                    delete_hero_elf_thread.Start((object)Hero_Elf);
-                                    Thread.Sleep(1);
+                                    if (value6 == 1)
+                                    {
+                                        player.Position += 3;
+                                        Hero_Elf.Position_x = 177;
+                                        Hero_Elf.Position_y = 41;
+                                        Thread.Sleep(1);
+                                        delete_hero_elf_thread.Start((object)Hero_Elf);
+                                        Thread.Sleep(1);
+                                    }
+                                    break;
+                                case ConsoleKey.RightArrow:
+                                    if (Room_3.Index == 3)
+                                    {
+                                        Hero_Human.Position_x = 177;
+                                        Hero_Human.Position_y = 41;
+                                        Thread.Sleep(1);
+                                        delete_hero_elf_thread.Start((object)Hero_Elf);
+                                        Thread.Sleep(1);
+                                        goto exit;
+                                    }
+                                    break;
+                                case ConsoleKey.DownArrow:
+                                    if (Room_3.Index == 3)
+                                    {
+                                        Hero_Human.Position_x = 177;
+                                        Hero_Human.Position_y = 41;
+                                        Thread.Sleep(1);
+                                        delete_hero_elf_thread.Start((object)Hero_Elf);
+                                        Thread.Sleep(1);
+                                        goto exit;
+                                    }
                                     break;
                                 default:
                                     goto choiceDirection;
@@ -913,28 +1483,48 @@ namespace Rog
                             switch (Direction.Key)
                             {
                                 case ConsoleKey.RightArrow:
-                                    player.Position++;
-                                    Hero_Elf.Position_x = 15;
-                                    Hero_Elf.Position_y = 23;
-                                    Thread.Sleep(1);
-                                    delete_hero_elf_thread.Start((object)Hero_Elf);
-                                    Thread.Sleep(1);
+                                    if (value5 == 1)
+                                    {
+                                        player.Position++;
+                                        Hero_Elf.Position_x = 15;
+                                        Hero_Elf.Position_y = 23;
+                                        Thread.Sleep(1);
+                                        delete_hero_elf_thread.Start((object)Hero_Elf);
+                                        Thread.Sleep(1);
+                                    }
                                     break;
                                 case ConsoleKey.UpArrow:
-                                    player.Position += 3;
-                                    Hero_Elf.Position_x = 15;
-                                    Hero_Elf.Position_y = 23;
-                                    Thread.Sleep(1);
-                                    delete_hero_elf_thread.Start((object)Hero_Elf);
-                                    Thread.Sleep(1);
+                                    if (value7 == 1)
+                                    {
+                                        player.Position += 3;
+                                        Hero_Elf.Position_x = 15;
+                                        Hero_Elf.Position_y = 23;
+                                        Thread.Sleep(1);
+                                        delete_hero_elf_thread.Start((object)Hero_Elf);
+                                        Thread.Sleep(1);
+                                    }
                                     break;
                                 case ConsoleKey.DownArrow:
-                                    player.Position -= 3;
-                                    Hero_Elf.Position_x = 15;
-                                    Hero_Elf.Position_y = 23;
-                                    Thread.Sleep(1);
-                                    delete_hero_elf_thread.Start((object)Hero_Elf);
-                                    Thread.Sleep(1);
+                                    if (value1 == 1)
+                                    {
+                                        player.Position -= 3;
+                                        Hero_Elf.Position_x = 15;
+                                        Hero_Elf.Position_y = 23;
+                                        Thread.Sleep(1);
+                                        delete_hero_elf_thread.Start((object)Hero_Elf);
+                                        Thread.Sleep(1);
+                                    }
+                                    break;
+                                case ConsoleKey.LeftArrow:
+                                    if (Room_4.Index == 3)
+                                    {
+                                        Hero_Human.Position_x = 15;
+                                        Hero_Human.Position_y = 23;
+                                        Thread.Sleep(1);
+                                        delete_hero_elf_thread.Start((object)Hero_Elf);
+                                        Thread.Sleep(1);
+                                        goto exit;
+                                    }
                                     break;
                                 default:
                                     goto choiceDirection;
@@ -945,28 +1535,37 @@ namespace Rog
                             switch (Direction.Key)
                             {
                                 case ConsoleKey.LeftArrow:
-                                    player.Position--;
-                                    Hero_Elf.Position_x = 96;
-                                    Hero_Elf.Position_y = 23;
-                                    Thread.Sleep(1);
-                                    delete_hero_elf_thread.Start((object)Hero_Elf);
-                                    Thread.Sleep(1);
+                                    if (value4 == 1)
+                                    {
+                                        player.Position--;
+                                        Hero_Elf.Position_x = 96;
+                                        Hero_Elf.Position_y = 23;
+                                        Thread.Sleep(1);
+                                        delete_hero_elf_thread.Start((object)Hero_Elf);
+                                        Thread.Sleep(1);
+                                    }
                                     break;
                                 case ConsoleKey.RightArrow:
-                                    player.Position++;
-                                    Hero_Elf.Position_x = 96;
-                                    Hero_Elf.Position_y = 23;
-                                    Thread.Sleep(1);
-                                    delete_hero_elf_thread.Start((object)Hero_Elf);
-                                    Thread.Sleep(1);
+                                    if (value6 == 1)
+                                    {
+                                        player.Position++;
+                                        Hero_Elf.Position_x = 96;
+                                        Hero_Elf.Position_y = 23;
+                                        Thread.Sleep(1);
+                                        delete_hero_elf_thread.Start((object)Hero_Elf);
+                                        Thread.Sleep(1);
+                                    }
                                     break;
                                 case ConsoleKey.UpArrow:
-                                    player.Position += 3;
-                                    Hero_Elf.Position_x = 96;
-                                    Hero_Elf.Position_y = 23;
-                                    Thread.Sleep(1);
-                                    delete_hero_elf_thread.Start((object)Hero_Elf);
-                                    Thread.Sleep(1);
+                                    if (value8 == 1)
+                                    {
+                                        player.Position += 3;
+                                        Hero_Elf.Position_x = 96;
+                                        Hero_Elf.Position_y = 23;
+                                        Thread.Sleep(1);
+                                        delete_hero_elf_thread.Start((object)Hero_Elf);
+                                        Thread.Sleep(1);
+                                    }
                                     break;
                                 case ConsoleKey.DownArrow:
                                     player.Position -= 3;
@@ -985,28 +1584,48 @@ namespace Rog
                             switch (Direction.Key)
                             {
                                 case ConsoleKey.LeftArrow:
-                                    player.Position--;
-                                    Hero_Elf.Position_x = 177;
-                                    Hero_Elf.Position_y = 23;
-                                    Thread.Sleep(1);
-                                    delete_hero_elf_thread.Start((object)Hero_Elf);
-                                    Thread.Sleep(1);
+                                    if (value5 == 1)
+                                    {
+                                        player.Position--;
+                                        Hero_Elf.Position_x = 177;
+                                        Hero_Elf.Position_y = 23;
+                                        Thread.Sleep(1);
+                                        delete_hero_elf_thread.Start((object)Hero_Elf);
+                                        Thread.Sleep(1);
+                                    }
                                     break;
                                 case ConsoleKey.UpArrow:
-                                    player.Position += 3;
-                                    Hero_Elf.Position_x = 177;
-                                    Hero_Elf.Position_y = 23;
-                                    Thread.Sleep(1);
-                                    delete_hero_elf_thread.Start((object)Hero_Elf);
-                                    Thread.Sleep(1);
+                                    if (value9 == 1)
+                                    {
+                                        player.Position += 3;
+                                        Hero_Elf.Position_x = 177;
+                                        Hero_Elf.Position_y = 23;
+                                        Thread.Sleep(1);
+                                        delete_hero_elf_thread.Start((object)Hero_Elf);
+                                        Thread.Sleep(1);
+                                    }
                                     break;
                                 case ConsoleKey.DownArrow:
-                                    player.Position -= 3;
-                                    Hero_Elf.Position_x = 177;
-                                    Hero_Elf.Position_y = 23;
-                                    Thread.Sleep(1);
-                                    delete_hero_elf_thread.Start((object)Hero_Elf);
-                                    Thread.Sleep(1);
+                                    if (value3 == 1)
+                                    {
+                                        player.Position -= 3;
+                                        Hero_Elf.Position_x = 177;
+                                        Hero_Elf.Position_y = 23;
+                                        Thread.Sleep(1);
+                                        delete_hero_elf_thread.Start((object)Hero_Elf);
+                                        Thread.Sleep(1);
+                                    }
+                                    break;
+                                case ConsoleKey.RightArrow:
+                                    if (Room_6.Index == 3)
+                                    {
+                                        Hero_Human.Position_x = 177;
+                                        Hero_Human.Position_y = 23;
+                                        Thread.Sleep(1);
+                                        delete_hero_elf_thread.Start((object)Hero_Elf);
+                                        Thread.Sleep(1);
+                                        goto exit;
+                                    }
                                     break;
                                 default:
                                     goto choiceDirection;
@@ -1017,20 +1636,48 @@ namespace Rog
                             switch (Direction.Key)
                             {
                                 case ConsoleKey.RightArrow:
-                                    player.Position++;
-                                    Hero_Elf.Position_x = 15;
-                                    Hero_Elf.Position_y = 5;
-                                    Thread.Sleep(1);
-                                    delete_hero_elf_thread.Start((object)Hero_Elf);
-                                    Thread.Sleep(1);
+                                    if (value8 == 1)
+                                    {
+                                        player.Position++;
+                                        Hero_Elf.Position_x = 15;
+                                        Hero_Elf.Position_y = 5;
+                                        Thread.Sleep(1);
+                                        delete_hero_elf_thread.Start((object)Hero_Elf);
+                                        Thread.Sleep(1);
+                                    }
                                     break;
                                 case ConsoleKey.DownArrow:
-                                    player.Position -= 3;
-                                    Hero_Elf.Position_x = 15;
-                                    Hero_Elf.Position_y = 5;
-                                    Thread.Sleep(1);
-                                    delete_hero_elf_thread.Start((object)Hero_Elf);
-                                    Thread.Sleep(1);
+                                    if (value4 == 1)
+                                    {
+                                        player.Position -= 3;
+                                        Hero_Elf.Position_x = 15;
+                                        Hero_Elf.Position_y = 5;
+                                        Thread.Sleep(1);
+                                        delete_hero_elf_thread.Start((object)Hero_Elf);
+                                        Thread.Sleep(1);
+                                    }
+                                    break;
+                                case ConsoleKey.LeftArrow:
+                                    if (Room_7.Index == 3)
+                                    {
+                                        Hero_Human.Position_x = 15;
+                                        Hero_Human.Position_y = 5;
+                                        Thread.Sleep(1);
+                                        delete_hero_elf_thread.Start((object)Hero_Elf);
+                                        Thread.Sleep(1);
+                                        goto exit;
+                                    }
+                                    break;
+                                case ConsoleKey.UpArrow:
+                                    if (Room_7.Index == 3)
+                                    {
+                                        Hero_Human.Position_x = 15;
+                                        Hero_Human.Position_y = 5;
+                                        Thread.Sleep(1);
+                                        delete_hero_elf_thread.Start((object)Hero_Elf);
+                                        Thread.Sleep(1);
+                                        goto exit;
+                                    }
                                     break;
                                 default:
                                     goto choiceDirection;
@@ -1041,35 +1688,48 @@ namespace Rog
                             switch (Direction.Key)
                             {
                                 case ConsoleKey.LeftArrow:
-                                    player.Position--;
-                                    Hero_Elf.Position_x = 96;
-                                    Hero_Elf.Position_y = 5;
-                                    Thread.Sleep(1);
-                                    delete_hero_elf_thread.Start((object)Hero_Elf);
-                                    Thread.Sleep(1);
+                                    if (value7 == 1)
+                                    {
+                                        player.Position--;
+                                        Hero_Elf.Position_x = 96;
+                                        Hero_Elf.Position_y = 5;
+                                        Thread.Sleep(1);
+                                        delete_hero_elf_thread.Start((object)Hero_Elf);
+                                        Thread.Sleep(1);
+                                    }
                                     break;
                                 case ConsoleKey.RightArrow:
-                                    player.Position++;
-                                    Hero_Elf.Position_x = 96;
-                                    Hero_Elf.Position_y = 5;
-                                    Thread.Sleep(1);
-                                    delete_hero_elf_thread.Start((object)Hero_Elf);
-                                    Thread.Sleep(1);
+                                    if (value9 == 1)
+                                    {
+                                        player.Position++;
+                                        Hero_Elf.Position_x = 96;
+                                        Hero_Elf.Position_y = 5;
+                                        Thread.Sleep(1);
+                                        delete_hero_elf_thread.Start((object)Hero_Elf);
+                                        Thread.Sleep(1);
+                                    }
                                     break;
                                 case ConsoleKey.UpArrow:
-                                    Hero_Elf.Position_x = 96;
-                                    Hero_Elf.Position_y = 5;
-                                    Thread.Sleep(1);
-                                    delete_hero_elf_thread.Start((object)Hero_Elf);
-                                    Thread.Sleep(1);
-                                    goto exit;
+                                    if (Room_8.Index == 3)
+                                    {
+                                        Hero_Human.Position_x = 96;
+                                        Hero_Human.Position_y = 5;
+                                        Thread.Sleep(1);
+                                        delete_hero_elf_thread.Start((object)Hero_Elf);
+                                        Thread.Sleep(1);
+                                        goto exit;
+                                    }
+                                    break;
                                 case ConsoleKey.DownArrow:
-                                    player.Position -= 3;
-                                    Hero_Elf.Position_x = 96;
-                                    Hero_Elf.Position_y = 5;
-                                    Thread.Sleep(1);
-                                    delete_hero_elf_thread.Start((object)Hero_Elf);
-                                    Thread.Sleep(1);
+                                    if (value5 == 1)
+                                    {
+                                        player.Position -= 3;
+                                        Hero_Elf.Position_x = 96;
+                                        Hero_Elf.Position_y = 5;
+                                        Thread.Sleep(1);
+                                        delete_hero_elf_thread.Start((object)Hero_Elf);
+                                        Thread.Sleep(1);
+                                    }
                                     break;
                                 default:
                                     goto choiceDirection;
@@ -1080,20 +1740,50 @@ namespace Rog
                             switch (Direction.Key)
                             {
                                 case ConsoleKey.LeftArrow:
-                                    player.Position--;
-                                    Hero_Elf.Position_x = 177;
-                                    Hero_Elf.Position_y = 5;
-                                    Thread.Sleep(1);
-                                    delete_hero_elf_thread.Start((object)Hero_Elf);
-                                    Thread.Sleep(1);
+                                    if (value8 == 1)
+                                    {
+                                        player.Position--;
+                                        Hero_Elf.Position_x = 177;
+                                        Hero_Elf.Position_y = 5;
+                                        Thread.Sleep(1);
+                                        delete_hero_elf_thread.Start((object)Hero_Elf);
+                                        Thread.Sleep(1);
+
+                                    }
                                     break;
                                 case ConsoleKey.DownArrow:
-                                    player.Position -= 3;
-                                    Hero_Elf.Position_x = 177;
-                                    Hero_Elf.Position_y = 5;
-                                    Thread.Sleep(1);
-                                    delete_hero_elf_thread.Start((object)Hero_Elf);
-                                    Thread.Sleep(1);
+                                    if (value6 == 1)
+                                    {
+                                        player.Position -= 3;
+                                        Hero_Elf.Position_x = 177;
+                                        Hero_Elf.Position_y = 5;
+                                        Thread.Sleep(1);
+                                        delete_hero_elf_thread.Start((object)Hero_Elf);
+                                        Thread.Sleep(1);
+
+                                    }
+                                    break;
+                                case ConsoleKey.RightArrow:
+                                    if (Room_9.Index == 3)
+                                    {
+                                        Hero_Human.Position_x = 177;
+                                        Hero_Human.Position_y = 5;
+                                        Thread.Sleep(1);
+                                        delete_hero_elf_thread.Start((object)Hero_Elf);
+                                        Thread.Sleep(1);
+                                        goto exit;
+                                    }
+                                    break;
+                                case ConsoleKey.UpArrow:
+                                    if (Room_9.Index == 3)
+                                    {
+                                        Hero_Human.Position_x = 177;
+                                        Hero_Human.Position_y = 5;
+                                        Thread.Sleep(1);
+                                        delete_hero_elf_thread.Start((object)Hero_Elf);
+                                        Thread.Sleep(1);
+                                        goto exit;
+                                    }
                                     break;
                                 default:
                                     goto choiceDirection;
