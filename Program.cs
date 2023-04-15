@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 using System.Text.Json;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using brownyy;
+using System.Runtime.Intrinsics;
 
 namespace Rog
 {
@@ -98,6 +99,10 @@ namespace Rog
             Console.Write("%");
             Console.SetCursorPosition(237, 54); //правая нижняя точка
             Console.Write("%");*/
+        }
+        static void Draw_minimap(object a, int v1, int v2)
+        {
+
         }
         static void Main()
         {
@@ -605,7 +610,9 @@ namespace Rog
                                             Dog.Position_y = 44;
                                             draw_dog_thread.Start((object)Dog);
                                             Thread.Sleep(1000);
+                                            Console.Clear();
                                             batttle.Batttle(chihuahua, player, agilitypotion, sharpshootingpotion,chemistrypotion);
+
                                             break;
                                             case 2:
                                             Gnom_molot_minimap.Position_x = 49;
