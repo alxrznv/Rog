@@ -9,6 +9,8 @@ using brownyy;
 using System.Runtime.Intrinsics;
 using Newtonsoft.Json.Linq;
 using System.Data;
+using Rog;
+using static Rog.Minigame;
 
 namespace Rog
 {
@@ -213,12 +215,345 @@ namespace Rog
                 Draw((object)Corridor_23);
             }
         }
+        public class LockClass
+        {
+            /// <summary>
+            /// Позиция x
+            /// </summary>    
+            public int Position_x { get; set; }
+            /// <summary>
+            /// Позиция y
+            /// </summary>
+            public int Position_y { get; set; }
+            public int Counter { get; set; }
+            public LockClass() { }
+            public LockClass(int _x, int _y, int a)
+            {
+                Position_x = _x;
+                Position_y = _y;
+                Counter = a;
+            }
+        }
+        public class PositionsRG
+        {
+            /// <summary>
+            /// Позиция x Red
+            /// </summary>    
+            public int Position_xR { get; set; }
+            /// <summary>
+            /// Позиция y Red
+            /// </summary>
+            public int Position_yR { get; set; }
+            /// <summary>
+            /// Позиция x Green
+            /// </summary>    
+            public int Position_xG { get; set; }
+            /// <summary>
+            /// Позиция y Green
+            /// </summary>
+            public int Position_yG { get; set; }
+            public int Counter { get; set; }
+            public bool Win { get; set; }
+            public PositionsRG() { }
+            public PositionsRG(int _xR, int _yR, int _xG, int _yG, int counter, bool win)
+            {
+                Position_xR = _xR;
+                Position_yR = _yR;
+                Position_xG = _xG;
+                Position_yG = _yG;
+                Counter = counter;
+                Win = win;
+            }
+        }
+        static void Draw_Red(object argument)
+        {
+            int x = 0;
+            int y = 0;
+            PositionsRG Positions = argument as PositionsRG;
+            Random rndXRD = new Random();
+            Random rndYRD = new Random();
+            while (Positions.Counter < 4)
+            {
+                if (Positions.Counter < 4)
+                {
+                    if ((Positions.Position_xG != Positions.Position_xR) && (Positions.Position_yG != Positions.Position_yR))
+                    {
+                        Thread.Sleep(100);
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.SetCursorPosition(Positions.Position_xR, Positions.Position_yR);
+                        for (int i = 0; i < 2; i++)
+                        {
+                            for (int j = 0; j < 2; j++)
+                            {
+                                Console.SetCursorPosition(Positions.Position_xR + j, Positions.Position_yR + i);
+                                Console.Write(Positions.Counter);
+                            }
+                        }
+                        Console.SetCursorPosition(42, 36);
+                        Console.Write(Positions.Position_xR + " " + Positions.Position_yR + " ");
+                        Thread.Sleep(8000); /*8000*/
+                        Console.SetCursorPosition(Positions.Position_xR, Positions.Position_yR);
+                        for (int i = 0; i < 2; i++)
+                        {
+                            for (int j = 0; j < 2; j++)
+                            {
+                                Console.SetCursorPosition(Positions.Position_xR + j, Positions.Position_yR + i);
+                                Console.Write(" ");
+                            }
+                        }
+                        Positions.Counter++;
+                        x = Positions.Position_xR;
+                        y = Positions.Position_yR;
+                        if (Positions.Counter == 4)
+                        {
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.SetCursorPosition(x, y);
+                            for (int i = 0; i < 2; i++)
+                            {
+                                for (int j = 0; j < 2; j++)
+                                {
+                                    Console.SetCursorPosition(x + j, y + i);
+                                    Console.Write(Positions.Counter - 1);
+                                }
+                            }
+                            Console.ForegroundColor = ConsoleColor.White;
+                            Console.SetCursorPosition(42, 37);
+                            break;
+                        }
+                        else
+                        {
+                            Positions.Position_xR = rndXRD.Next(43, 116);
+                            Positions.Position_yR = rndYRD.Next(13, 32);
+                        }
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.SetCursorPosition(x, y);
+                        for (int i = 0; i < 2; i++)
+                        {
+                            for (int j = 0; j < 2; j++)
+                            {
+                                Console.SetCursorPosition(x + j, y + i);
+                                Console.Write(Positions.Counter - 1);
+                            }
+                        }
+                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.SetCursorPosition(42, 37);
+                        break;
+                    }
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.SetCursorPosition(x, y);
+                    for (int i = 0; i < 2; i++)
+                    {
+                        for (int j = 0; j < 2; j++)
+                        {
+                            Console.SetCursorPosition(x + j, y + i);
+                            Console.Write(Positions.Counter - 1);
+                        }
+                    }
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.SetCursorPosition(42, 37);
+                    break;
+                }
+            }
+        }
+        static void Start()
+        {
+            Console.CursorVisible = false;
+            Random rndXR = new Random();
+            Random rndYR = new Random();
+            Random rndXG = new Random();
+            Random rndYG = new Random();
+            Console.SetWindowSize(160, 60);
+            Pole();
+            LockClass GreenKey = new LockClass();
+            GreenKey.Position_x = 80;
+            GreenKey.Position_y = 31;
+            LockClass RedLock = new LockClass();
+            RedLock.Position_x = rndXR.Next(43, 116);
+            RedLock.Position_y = rndYR.Next(13, 32);
+            RedLock.Counter = 1;
+            if ((RedLock.Position_x == 80) || (RedLock.Position_x == 81))
+            {
+                RedLock.Position_x = rndXR.Next(43, 79);
+            }
+            if ((RedLock.Position_y == 31) || (RedLock.Position_y == 30))
+            {
+                RedLock.Position_y = rndYR.Next(13, 30);
+            }
+            PositionsRG GreenKeyANDRedLock = new PositionsRG();
+            GreenKeyANDRedLock.Position_xG = GreenKey.Position_x;
+            GreenKeyANDRedLock.Position_yG = GreenKey.Position_y;
+            GreenKeyANDRedLock.Position_xR = RedLock.Position_x;
+            GreenKeyANDRedLock.Position_yR = RedLock.Position_y;
+            GreenKeyANDRedLock.Counter = RedLock.Counter;
+            ParameterizedThreadStart draw_red = new ParameterizedThreadStart(Draw_Red);
+            Thread draw_redThread = new Thread(draw_red);
+            draw_redThread.Start((object)GreenKeyANDRedLock);
+
+            while (GreenKeyANDRedLock.Counter < 4)
+            {
+                if ((GreenKey.Position_x == GreenKeyANDRedLock.Position_xR) && (GreenKey.Position_y == GreenKeyANDRedLock.Position_yR))
+                {
+                    break;
+                }
+                else
+                {
+                    Thread.Sleep(10);
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.SetCursorPosition(GreenKey.Position_x, GreenKey.Position_y);
+                    for (int i = 0; i < 2; i++)
+                    {
+                        for (int j = 0; j < 2; j++)
+                        {
+                            Console.SetCursorPosition(GreenKey.Position_x + j, GreenKey.Position_y + i);
+                            Console.Write("K");
+                            Console.SetCursorPosition(42, 35);
+                            Console.Write(GreenKey.Position_x + " " + GreenKey.Position_y);
+                        }
+                    }
+                    Console.SetCursorPosition(GreenKey.Position_x, GreenKey.Position_y);
+                    if ((Console.ReadKey().Key == ConsoleKey.UpArrow) && (GreenKey.Position_y > 13))
+                    {
+                        for (int i = 0; i < 2; i++)
+                        {
+                            for (int j = 0; j < 2; j++)
+                            {
+                                Console.SetCursorPosition(GreenKey.Position_x + j, GreenKey.Position_y + i);
+                                Console.Write(" ");
+                            }
+                        }
+                        GreenKey.Position_y = GreenKey.Position_y - 1;
+                        GreenKey.Position_x = GreenKey.Position_x;
+                        GreenKeyANDRedLock.Position_xG = GreenKey.Position_x;
+                        GreenKeyANDRedLock.Position_yG = GreenKey.Position_y;
+                        Console.SetCursorPosition(GreenKey.Position_x, GreenKey.Position_y);
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        for (int i = 0; i < 2; i++)
+                        {
+                            for (int j = 0; j < 2; j++)
+                            {
+                                Console.SetCursorPosition(GreenKey.Position_x + j, GreenKey.Position_y + i);
+                                Console.Write("K");
+                                Console.SetCursorPosition(42, 35);
+                                Console.Write(GreenKeyANDRedLock.Position_xG + " " + GreenKeyANDRedLock.Position_yG);
+                            }
+                        }
+                        Console.SetCursorPosition(GreenKey.Position_x, GreenKey.Position_y);
+                    }
+                    else if ((Console.ReadKey().Key == ConsoleKey.LeftArrow) && (GreenKey.Position_x > 43))
+                    {
+                        for (int i = 0; i < 2; i++)
+                        {
+                            for (int j = 0; j < 2; j++)
+                            {
+                                Console.SetCursorPosition(GreenKey.Position_x + j, GreenKey.Position_y + i);
+                                Console.Write(" ");
+                            }
+                        }
+                        GreenKey.Position_y = GreenKey.Position_y;
+                        GreenKey.Position_x = GreenKey.Position_x - 1;
+                        GreenKeyANDRedLock.Position_xG = GreenKey.Position_x;
+                        GreenKeyANDRedLock.Position_yG = GreenKey.Position_y;
+                        Console.SetCursorPosition(GreenKey.Position_x, GreenKey.Position_y);
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        for (int i = 0; i < 2; i++)
+                        {
+                            for (int j = 0; j < 2; j++)
+                            {
+                                Console.SetCursorPosition(GreenKey.Position_x + j, GreenKey.Position_y + i);
+                                Console.Write("K");
+                                Console.SetCursorPosition(42, 35);
+                                Console.Write(GreenKeyANDRedLock.Position_xG + " " + GreenKeyANDRedLock.Position_yG);
+                            }
+                        }
+                        Console.SetCursorPosition(GreenKey.Position_x, GreenKey.Position_y);
+                    }
+                    else if ((Console.ReadKey().Key == ConsoleKey.RightArrow) && (GreenKey.Position_x < 115))
+                    {
+                        for (int i = 0; i < 2; i++)
+                        {
+                            for (int j = 0; j < 2; j++)
+                            {
+                                Console.SetCursorPosition(GreenKey.Position_x + j, GreenKey.Position_y + i);
+                                Console.Write(" ");
+                            }
+                        }
+                        GreenKey.Position_y = GreenKey.Position_y;
+                        GreenKey.Position_x = GreenKey.Position_x + 1;
+                        GreenKeyANDRedLock.Position_xG = GreenKey.Position_x;
+                        GreenKeyANDRedLock.Position_yG = GreenKey.Position_y;
+                        Console.SetCursorPosition(GreenKey.Position_x, GreenKey.Position_y);
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        for (int i = 0; i < 2; i++)
+                        {
+                            for (int j = 0; j < 2; j++)
+                            {
+                                Console.SetCursorPosition(GreenKey.Position_x + j, GreenKey.Position_y + i);
+                                Console.Write("K");
+                                Console.SetCursorPosition(42, 35);
+                                Console.Write(GreenKeyANDRedLock.Position_xG + " " + GreenKeyANDRedLock.Position_yG);
+                            }
+                        }
+                        Console.SetCursorPosition(GreenKey.Position_x, GreenKey.Position_y);
+                    }
+                    else if ((Console.ReadKey().Key == ConsoleKey.DownArrow) && (GreenKey.Position_y < 31))
+                    {
+                        for (int i = 0; i < 2; i++)
+                        {
+                            for (int j = 0; j < 2; j++)
+                            {
+                                Console.SetCursorPosition(GreenKey.Position_x + j, GreenKey.Position_y + i);
+                                Console.Write(" ");
+                            }
+                        }
+                        GreenKey.Position_y = GreenKey.Position_y + 1;
+                        GreenKey.Position_x = GreenKey.Position_x;
+                        GreenKeyANDRedLock.Position_xG = GreenKey.Position_x;
+                        GreenKeyANDRedLock.Position_yG = GreenKey.Position_y;
+                        Console.SetCursorPosition(GreenKey.Position_x, GreenKey.Position_y);
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        for (int i = 0; i < 2; i++)
+                        {
+                            for (int j = 0; j < 2; j++)
+                            {
+                                Console.CursorLeft = GreenKey.Position_x + j;
+                                Console.CursorTop = GreenKey.Position_y + i;
+                                Console.Write("K");
+                                Console.SetCursorPosition(42, 35);
+                                Console.Write(GreenKeyANDRedLock.Position_xG + " " + GreenKeyANDRedLock.Position_yG);
+                            }
+                        }
+                        Console.SetCursorPosition(GreenKey.Position_x, GreenKey.Position_y);
+                    }
+                }
+            }
+            draw_redThread.Interrupt();
+            //draw_redThread.Abort();
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.SetCursorPosition(42, 37);
+            if (GreenKeyANDRedLock.Counter < 4)
+            {
+                Console.WriteLine("Ты победил!");
+            }
+            else
+            {
+                Console.WriteLine("Ты проиграл!");
+            }
+            Console.CursorVisible = true;
+        }
+
         static void Main()
         {
             SetConsoleDisplayMode(Console.WindowWidth, Console.WindowHeight);
             Console.SetWindowSize(240, 63);
             Console.CursorVisible = false;
-            string data1 = File.ReadAllText("E:\\Desctop 2\\Rog-Gameplay\\bin\\Debug\\net7.0\\RoomGlobal.json");
+            Program.Start();
+            string data1 = File.ReadAllText("C:\\Users\\omg what the hell\\Desktop\\Rog-Gameplay\\bin\\Debug\\net7.0\\RoomGlobal.json");
             RoomClass Room_1 = JsonSerializer.Deserialize<RoomClass>(data1);
             RoomClass Room_2 = JsonSerializer.Deserialize<RoomClass>(data1);
             RoomClass Room_3 = JsonSerializer.Deserialize<RoomClass>(data1);
@@ -229,7 +564,7 @@ namespace Rog
             RoomClass Room_8 = JsonSerializer.Deserialize<RoomClass>(data1);
             RoomClass Room_9 = JsonSerializer.Deserialize<RoomClass>(data1);
 
-            string data10 = File.ReadAllText("E:\\Desctop 2\\Rog-Gameplay\\bin\\Debug\\net7.0\\Corridor_Vertical.json");
+            string data10 = File.ReadAllText("C:\\Users\\omg what the hell\\Desktop\\Rog-Gameplay\\bin\\Debug\\net7.0\\Corridor_Vertical.json");
             RoomClass Corridor_47 = JsonSerializer.Deserialize<RoomClass>(data10);
             RoomClass Corridor_14 = JsonSerializer.Deserialize<RoomClass>(data10);
             RoomClass Corridor_58 = JsonSerializer.Deserialize<RoomClass>(data10);
@@ -237,7 +572,7 @@ namespace Rog
             RoomClass Corridor_69 = JsonSerializer.Deserialize<RoomClass>(data10);
             RoomClass Corridor_36 = JsonSerializer.Deserialize<RoomClass>(data10);
 
-            string data16 = File.ReadAllText("E:\\Desctop 2\\Rog-Gameplay\\bin\\Debug\\net7.0\\Corridor_Horizontal.json");
+            string data16 = File.ReadAllText("C:\\Users\\omg what the hell\\Desktop\\Rog-Gameplay\\bin\\Debug\\net7.0\\Corridor_Horizontal.json");
             RoomClass Corridor_78 = JsonSerializer.Deserialize<RoomClass>(data16);
             RoomClass Corridor_45 = JsonSerializer.Deserialize<RoomClass>(data16);
             RoomClass Corridor_12 = JsonSerializer.Deserialize<RoomClass>(data16);
@@ -245,18 +580,18 @@ namespace Rog
             RoomClass Corridor_56 = JsonSerializer.Deserialize<RoomClass>(data16);
             RoomClass Corridor_23 = JsonSerializer.Deserialize<RoomClass>(data16);
 
-            string data22 = File.ReadAllText("E:\\Desctop 2\\Rog-Gameplay\\bin\\Debug\\net7.0\\Dealer.json");
+            string data22 = File.ReadAllText("C:\\Users\\omg what the hell\\Desktop\\Rog-Gameplay\\bin\\Debug\\net7.0\\Dealer.json");
             RoomClass Dealer = JsonSerializer.Deserialize<RoomClass>(data22);
-            string data23 = File.ReadAllText("E:\\Desctop 2\\Rog-Gameplay\\bin\\Debug\\net7.0\\Hero_Elf.json");
+            string data23 = File.ReadAllText("C:\\Users\\omg what the hell\\Desktop\\Rog-Gameplay\\bin\\Debug\\net7.0\\Hero_Elf.json");
             RoomClass Hero_Elf = JsonSerializer.Deserialize<RoomClass>(data23);
-            string data24 = File.ReadAllText("E:\\Desctop 2\\Rog-Gameplay\\bin\\Debug\\net7.0\\Hero_Hunan.json");
+            string data24 = File.ReadAllText("C:\\Users\\omg what the hell\\Desktop\\Rog-Gameplay\\bin\\Debug\\net7.0\\Hero_Hunan.json");
             RoomClass Hero_Human = JsonSerializer.Deserialize<RoomClass>(data24);
 
-            string data25 = File.ReadAllText("E:\\Desctop 2\\Rog-Gameplay\\bin\\Debug\\net7.0\\Dog1.json");
+            string data25 = File.ReadAllText("C:\\Users\\omg what the hell\\Desktop\\Rog-Gameplay\\bin\\Debug\\net7.0\\Dog1.json");
             RoomClass Dog = JsonSerializer.Deserialize<RoomClass>(data25);
-            string data26 = File.ReadAllText("E:\\Desctop 2\\Rog-Gameplay\\bin\\Debug\\net7.0\\Gnom_automat_minimap.json");
+            string data26 = File.ReadAllText("C:\\Users\\omg what the hell\\Desktop\\Rog-Gameplay\\bin\\Debug\\net7.0\\Gnom_automat_minimap.json");
             RoomClass Gnom_automat_minimap = JsonSerializer.Deserialize<RoomClass>(data26);
-            string data27 = File.ReadAllText("E:\\Desctop 2\\Rog-Gameplay\\bin\\Debug\\net7.0\\Gnom_molot_minimap.json");
+            string data27 = File.ReadAllText("C:\\Users\\omg what the hell\\Desktop\\Rog-Gameplay\\bin\\Debug\\net7.0\\Gnom_molot_minimap.json");
             RoomClass Gnom_molot_minimap = JsonSerializer.Deserialize<RoomClass>(data27);
 
             
@@ -318,6 +653,8 @@ namespace Rog
             Battle batttle = new Battle();
             Inventory inventory = new Inventory();
             Dealer dealer = new Dealer();
+            Game game = new Game();
+            
 
             Random rnd = new Random();
 
@@ -670,7 +1007,8 @@ namespace Rog
                                     case 2:
                                         Thread.Sleep(500);
                                         Console.Clear();
-                                        Console.WriteLine("Замок");
+                                        Start();
+
                                         Room_1.Index = 0;
                                         Thread.Sleep(1000);
                                         Pole();
@@ -3142,6 +3480,12 @@ namespace Rog
                 }
             }
         }
+
+        private static void Start()
+        {
+            throw new NotImplementedException();
+        }
+
         static void SetConsoleDisplayMode(int width, int height)
         {
             const int SW_MAXIMIZE = 3;
