@@ -6,6 +6,7 @@ namespace Rog
     {
         public void Deal(Player p, Potion a, Potion s, Potion c, Weapon t, Weapon e)
         {
+            Console.SetCursorPosition(0,0);
             Console.WriteLine(
                 "Добро пожаловать в мой магазин, путник!\n "
                     + "Товара не много, так как он очень редкий и ,соответственно, дорогой, так что выбирай с умом!"

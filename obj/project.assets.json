@@ -60,11 +60,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Desctop 2\\Rog-Gameplay\\Rog-Gameplay\\brownyy.csproj",
+      "projectUniqueName": "E:\\Desctop 2\\Rog-Gameplay\\brownyy.csproj",
       "projectName": "brownyy",
-      "projectPath": "E:\\Desctop 2\\Rog-Gameplay\\Rog-Gameplay\\brownyy.csproj",
+      "projectPath": "E:\\Desctop 2\\Rog-Gameplay\\brownyy.csproj",
       "packagesPath": "C:\\Users\\andre\\.nuget\\packages\\",
-      "outputPath": "E:\\Desctop 2\\Rog-Gameplay\\Rog-Gameplay\\obj\\",
+      "outputPath": "E:\\Desctop 2\\Rog-Gameplay\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\andre\\AppData\\Roaming\\NuGet\\NuGet.Config",

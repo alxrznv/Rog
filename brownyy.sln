@@ -5,15 +5,17 @@ VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "brownyy", "brownyy.csproj", "{B1D72175-30BB-41AF-817B-EF8D7572F88C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Room", "..\..\..\Visual Studio Projects\Room\Room\Room.csproj", "{BFE53F6F-083C-4DA2-8607-F347E4425E79}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Room", "..\..\Visual Studio Projects\Room\Room\Room.csproj", "{BFE53F6F-083C-4DA2-8607-F347E4425E79}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp1", "C:\Users\andre\Downloads\ConsoleApp1-master\ConsoleApp1\ConsoleApp1.csproj", "{32D92033-5952-4FE7-A529-683E995AD330}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FightAnimation", "..\..\..\Visual Studio Projects\FightAnimation\FightAnimation\FightAnimation.csproj", "{DD74AAC7-E8DC-4D94-9EFE-E75C00585E06}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FightAnimation", "..\..\Visual Studio Projects\FightAnimation\FightAnimation\FightAnimation.csproj", "{DD74AAC7-E8DC-4D94-9EFE-E75C00585E06}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EnemyAnimation", "..\..\..\Visual Studio Projects\EnemyAnimation\EnemyAnimation\EnemyAnimation.csproj", "{CFFF287E-8FF1-4AD5-9554-827D07A7E121}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EnemyAnimation", "..\..\Visual Studio Projects\EnemyAnimation\EnemyAnimation\EnemyAnimation.csproj", "{CFFF287E-8FF1-4AD5-9554-827D07A7E121}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BreakeLock", "..\..\..\Visual Studio Projects\BreakeLock\BreakeLock\BreakeLock.csproj", "{E0CC4F84-6A07-47EF-8650-19B9E55DE0FB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BreakeLock", "..\..\Visual Studio Projects\BreakeLock\BreakeLock\BreakeLock.csproj", "{E0CC4F84-6A07-47EF-8650-19B9E55DE0FB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LockJson", "..\..\Visual Studio Projects\LockJson\LockJson\LockJson.csproj", "{26E38E80-3AE9-4D1F-92DE-0E3B0AB4DB76}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{E0CC4F84-6A07-47EF-8650-19B9E55DE0FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E0CC4F84-6A07-47EF-8650-19B9E55DE0FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E0CC4F84-6A07-47EF-8650-19B9E55DE0FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26E38E80-3AE9-4D1F-92DE-0E3B0AB4DB76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26E38E80-3AE9-4D1F-92DE-0E3B0AB4DB76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26E38E80-3AE9-4D1F-92DE-0E3B0AB4DB76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26E38E80-3AE9-4D1F-92DE-0E3B0AB4DB76}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

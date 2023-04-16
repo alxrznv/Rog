@@ -33,7 +33,12 @@ namespace Rog
                 }
                 choice:
                 Console.WriteLine(
-                    "Что будете делать? \n 1. Атака \n 2. Уклонение \n 3. Аптечка \n 4. Зелье Ловкости \n 5. Зелье меткости"
+                    "Что будете делать? \n 1. Атака (Шанс успеха {0}%) \n 2. Уклонение (Шанс успеха {1}%) \n 3. Аптечка (У вас сейчас {2} шт.)\n 4. Зелье Ловкости (У вас сейчас {3} шт.)\n 5. Зелье меткости (У вас сейчас {4} шт.)",
+                    p.Sharpshooting,
+                    p.Agility,
+                    p.ChemistryAmmount,
+                    p.AgilityPotionAmmount,
+                    p.SharpshootingPotionAmmount
                 );
 
                 int hod = Convert.ToInt32(Console.ReadLine());
@@ -70,7 +75,8 @@ namespace Rog
                             {
                                 p.Health = 100;
                                 p.ChemistryAmmount = p.ChemistryAmmount - 1;
-                                Console.WriteLine(
+                                //Console.SetCursorPosition();
+                                Console.Write(
                                     "Вы использовали аптечку \n Ваше здоровье {0}",
                                     p.Health
                                 );
@@ -172,7 +178,13 @@ namespace Rog
                         break;
                 }
             }
-            if (p.Health < 0)
+            if (p.Health > 0 && e.Health < 0)
+            {
+                Console.WriteLine("Вы победили!");
+                p.DocumentsAmmount = p.DocumentsAmmount + e.Documents;
+                Console.WriteLine("Теперь у вас {0} документов", p.DocumentsAmmount);
+            }
+            /*if (p.Health < 0)
             {
                 Console.WriteLine("Вы погибли. GAME OVER");
             }
@@ -184,7 +196,7 @@ namespace Rog
                     p.DocumentsAmmount = p.DocumentsAmmount + e.Documents;
                     Console.WriteLine("Теперь у вас {0} документов", p.DocumentsAmmount);
                 }
-            }
+            }*/
         }
     }
 }

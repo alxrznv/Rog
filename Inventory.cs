@@ -6,9 +6,11 @@ namespace Rog
     {
         public void Inv(Player p)
         {
+            Console.SetCursorPosition(0, 53);
             Console.WriteLine("|          Ивентарь          |");
             Console.WriteLine("+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=");
             Console.WriteLine("|Документы - {0}                  ", p.DocumentsAmmount);
+            Console.WriteLine("Здоровье - {0}", p.Health);
             Console.WriteLine("|Зелье ловкости - {0}", p.AgilityPotionAmmount);
             Console.WriteLine("|Зелье меткости - {0}", p.SharpshootingPotionAmmount);
             if (p.Damage == 20)

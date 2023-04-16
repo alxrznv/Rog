@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Desctop 2\\Rog-Gameplay\\brownyy.csproj": {}
+    "C:\\Users\\andre\\Downloads\\ConsoleApp1-master\\ConsoleApp1\\ConsoleApp1.csproj": {}
   },
   "projects": {
-    "E:\\Desctop 2\\Rog-Gameplay\\brownyy.csproj": {
+    "C:\\Users\\andre\\Downloads\\ConsoleApp1-master\\ConsoleApp1\\ConsoleApp1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Desctop 2\\Rog-Gameplay\\brownyy.csproj",
+        "projectUniqueName": "C:\\Users\\andre\\Downloads\\ConsoleApp1-master\\ConsoleApp1\\ConsoleApp1.csproj",
         "projectName": "brownyy",
-        "projectPath": "E:\\Desctop 2\\Rog-Gameplay\\brownyy.csproj",
+        "projectPath": "C:\\Users\\andre\\Downloads\\ConsoleApp1-master\\ConsoleApp1\\ConsoleApp1.csproj",
         "packagesPath": "C:\\Users\\andre\\.nuget\\packages\\",
         "outputPath": "E:\\Desctop 2\\Rog-Gameplay\\obj\\",
         "projectStyle": "PackageReference",
@@ -39,12 +39,6 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
-          "dependencies": {
-            "Newtonsoft.Json": {
-              "target": "Package",
-              "version": "[13.0.3, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",
