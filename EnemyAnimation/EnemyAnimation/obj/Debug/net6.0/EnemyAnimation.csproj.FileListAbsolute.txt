@@ -1,0 +1,17 @@
+E:\Visual Studio Projects\EnemyAnimation\EnemyAnimation\bin\Debug\net6.0\EnemyAnimation.exe
+E:\Visual Studio Projects\EnemyAnimation\EnemyAnimation\bin\Debug\net6.0\EnemyAnimation.deps.json
+E:\Visual Studio Projects\EnemyAnimation\EnemyAnimation\bin\Debug\net6.0\EnemyAnimation.runtimeconfig.json
+E:\Visual Studio Projects\EnemyAnimation\EnemyAnimation\bin\Debug\net6.0\EnemyAnimation.dll
+E:\Visual Studio Projects\EnemyAnimation\EnemyAnimation\bin\Debug\net6.0\EnemyAnimation.pdb
+E:\Visual Studio Projects\EnemyAnimation\EnemyAnimation\obj\Debug\net6.0\EnemyAnimation.csproj.AssemblyReference.cache
+E:\Visual Studio Projects\EnemyAnimation\EnemyAnimation\obj\Debug\net6.0\EnemyAnimation.GeneratedMSBuildEditorConfig.editorconfig
+E:\Visual Studio Projects\EnemyAnimation\EnemyAnimation\obj\Debug\net6.0\EnemyAnimation.AssemblyInfoInputs.cache
+E:\Visual Studio Projects\EnemyAnimation\EnemyAnimation\obj\Debug\net6.0\EnemyAnimation.AssemblyInfo.cs
+E:\Visual Studio Projects\EnemyAnimation\EnemyAnimation\obj\Debug\net6.0\EnemyAnimation.csproj.CoreCompileInputs.cache
+E:\Visual Studio Projects\EnemyAnimation\EnemyAnimation\obj\Debug\net6.0\EnemyAnimation.dll
+E:\Visual Studio Projects\EnemyAnimation\EnemyAnimation\obj\Debug\net6.0\refint\EnemyAnimation.dll
+E:\Visual Studio Projects\EnemyAnimation\EnemyAnimation\obj\Debug\net6.0\EnemyAnimation.pdb
+E:\Visual Studio Projects\EnemyAnimation\EnemyAnimation\obj\Debug\net6.0\EnemyAnimation.genruntimeconfig.cache
+E:\Visual Studio Projects\EnemyAnimation\EnemyAnimation\obj\Debug\net6.0\ref\EnemyAnimation.dll
+E:\Visual Studio Projects\EnemyAnimation\EnemyAnimation\bin\Debug\net6.0\Newtonsoft.Json.dll
+E:\Visual Studio Projects\EnemyAnimation\EnemyAnimation\obj\Debug\net6.0\EnemyAnimation.csproj.CopyComplete
