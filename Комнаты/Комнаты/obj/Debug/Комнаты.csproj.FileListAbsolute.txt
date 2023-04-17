@@ -1,0 +1,11 @@
+D:\rep\Комнаты\Комнаты\obj\Debug\Комнаты.csproj.AssemblyReference.cache
+D:\rep\Комнаты\Комнаты\obj\Debug\Комнаты.csproj.SuggestedBindingRedirects.cache
+D:\rep\Комнаты\Комнаты\obj\Debug\Комнаты.csproj.CoreCompileInputs.cache
+D:\rep\Комнаты\Комнаты\bin\Debug\Комнаты.exe.config
+D:\rep\Комнаты\Комнаты\bin\Debug\Комнаты.exe
+D:\rep\Комнаты\Комнаты\bin\Debug\Комнаты.pdb
+D:\rep\Комнаты\Комнаты\obj\Debug\Комнаты.exe
+D:\rep\Комнаты\Комнаты\obj\Debug\Комнаты.pdb
+D:\rep\Комнаты\Комнаты\bin\Debug\Newtonsoft.Json.dll
+D:\rep\Комнаты\Комнаты\bin\Debug\Newtonsoft.Json.xml
+D:\rep\Комнаты\Комнаты\obj\Debug\Комнаты.csproj.CopyComplete
