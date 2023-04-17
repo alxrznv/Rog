@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EnemyAnimation", "..\..\Vis
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BreakeLock", "..\..\Visual Studio Projects\BreakeLock\BreakeLock\BreakeLock.csproj", "{E0CC4F84-6A07-47EF-8650-19B9E55DE0FB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LockJson", "..\..\Visual Studio Projects\LockJson\LockJson\LockJson.csproj", "{26E38E80-3AE9-4D1F-92DE-0E3B0AB4DB76}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D4F84A68-878F-407F-9990-8218341BDDAD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,10 +47,6 @@ Global
 		{E0CC4F84-6A07-47EF-8650-19B9E55DE0FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E0CC4F84-6A07-47EF-8650-19B9E55DE0FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E0CC4F84-6A07-47EF-8650-19B9E55DE0FB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{26E38E80-3AE9-4D1F-92DE-0E3B0AB4DB76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{26E38E80-3AE9-4D1F-92DE-0E3B0AB4DB76}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{26E38E80-3AE9-4D1F-92DE-0E3B0AB4DB76}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{26E38E80-3AE9-4D1F-92DE-0E3B0AB4DB76}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
